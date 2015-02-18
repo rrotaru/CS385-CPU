@@ -18,5 +18,7 @@ CPU designed in Verilog
 **Test Program (16-bit)**
 * 16-Bit –
 * Testing –
+
 **Diagrams**
+
 **Report** - Robert Rotaru, Bryan Bigelow, Anthony Cerritelli
