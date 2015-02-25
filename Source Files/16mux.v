@@ -39,7 +39,7 @@ module testing ();
  reg [1:0] s;
  wire [15:0] O;
 
- mux16Bit4x1 mux(i0, i2, i3, i3, s, O);
+ mux16Bit4x1 mux(i0, i1, i2, i3, s, O);
 
  initial 
    begin  
