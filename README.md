@@ -16,7 +16,7 @@ CPU designed in Verilog
   * Testing – Bryan
 
 **Test Program (16-bit)**
-* 16-Bit –
+* 16-Bit Translation – Bryan
 * Testing –
 
 **Diagrams**
