@@ -11,7 +11,8 @@ CPU designed in Verilog
   * Testing –
 
 **Register File (16-bit)**
-* 16-bit Registers –
+* 16-bit Registers – Tony
+    * Testing - Tony
 * Gate Level 4x1 Mux – Bryan
   * Testing – Bryan
 
