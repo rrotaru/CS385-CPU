@@ -11,29 +11,6 @@
 
 // Simplified version of MIPS register file (4 registers, 16-bit data)
 
-// For the project MIPS (4-registers, 16-bit data):
-//  1. Change the D flip-flops with 16-bit registers
-//  2. Redesign mux4x1 using gate-level modeling
-/*module reg_file (RR1,RR2,WR,WD,RegWrite,RD1,RD2,clock);
-
-  input [4:0] RR1,RR2,WR;
-  input [31:0] WD;
-  input RegWrite,clock;
-  output [31:0] RD1,RD2;
-
-  reg [31:0] Regs[0:31];
-
-  assign RD1 = Regs[RR1];
-  assign RD2 = Regs[RR2];
-
-  initial Regs[0] = 0;
-
-  always @(negedge clock)
-    if (RegWrite==1 & WR!=0) 
-	Regs[WR] <= WD;
-
-endmodule*/
-
 module reg_file (rr1,rr2,wr,wd,regwrite,rd1,rd2,clock);
 
    input [1:0] rr1,rr2,wr;
