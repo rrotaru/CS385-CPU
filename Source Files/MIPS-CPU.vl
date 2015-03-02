@@ -95,7 +95,7 @@ module CPU (clock, AluOut, IR, test,a,b,c,d);
 
     assign IR = IMemory[PC>>2];
     // assign WR
-    mux2bit2x1 muxWR (IR[7:6], IR[9:8], RegDst, WR);
+    mux2bit2x1 muxWR (IR[9:8], IR[7:6], RegDst, WR);
     // assign B
     mux16bit2x1 muxB (RD2, SignExtend, AluSrc, B);
 
