@@ -66,11 +66,8 @@ module aluCtrl (aluOp, func, aluCtrl);
 
 endmodule
 
-module CPU (clock, AluOut, IR, test,a,b,c,d);
+module CPU (clock, AluOut, IR);
 
-    output [2:0] test;
-    output [15:0] a,b,c,d;
-    
     input clock;
     output [15:0] AluOut, IR;
     reg[15:0] PC;
@@ -81,21 +78,21 @@ module CPU (clock, AluOut, IR, test,a,b,c,d);
 
     /* Test Program */
     initial begin 
-        IMemory[0] = 16'b0100000100001111;  // addi $t1, $0,  15   ($t1=15)   0010 00 01 00001111
-        IMemory[1] = 16'b0100001000000111;  // addi $t2, $0,  7    ($t2= 7)
-        IMemory[2] = 16'b0000011011000000;  // and  $t3, $t1, $t2  ($t3= 7)
-        IMemory[3] = 16'b0110011110000000;  // sub  $t2, $t1, $t3  ($t2= 8)
-        IMemory[4] = 16'b0001101110000000;  // or   $t2, $t2, $t3  ($t2=15)
+        IMemory[0] = 16'b0100000100001111;  // addi $t1, $0,  15   ($t1=15)   0100 00 01 00001111
+        IMemory[1] = 16'b0100001000000111;  // addi $t2, $0,  7    ($t2= 7)   0100 00 10 00000111
+        IMemory[2] = 16'b0000011011000000;  // and  $t3, $t1, $t2  ($t3= 7)   0000 01 10 11 xxxxxx
+        IMemory[3] = 16'b0110011110000000;  // sub  $t2, $t1, $t3  ($t2= 8)   0110 01 11 10 xxxxxx
+        IMemory[4] = 16'b0001101110000000;  // or   $t2, $t2, $t3  ($t2=15)   0001 10 11 10 xxxxxx
         IMemory[5] = 16'b0010101111000000;  // add  $t3, $t2, $t3  ($t3=22)   0010 10 11 11 xxxxxx
-        IMemory[6] = 16'b0111111001000000;  // slt  $t1, $t3, $t2  ($t1= 1)
-        IMemory[7] = 16'b0111101101000000;  // slt  $t1, $t2, $t3  ($t1= 0)
+        IMemory[6] = 16'b0111111001000000;  // slt  $t1, $t3, $t2  ($t1= 0)   0111 11 10 01 xxxxxx
+        IMemory[7] = 16'b0111101101000000;  // slt  $t1, $t2, $t3  ($t1= 1)   0111 10 11 01 xxxxxx
     end
 
     initial PC = 0;
 
-    assign IR = IMemory[PC>>2];
+    assign IR = IMemory[PC>>1];
     // assign WR
-    mux2bit2x1 muxWR (IR[7:6], IR[9:8], RegDst, WR);
+    mux2bit2x1 muxWR (IR[9:8], IR[7:6], RegDst, WR);
     // assign B
     mux16bit2x1 muxB (RD2, SignExtend, AluSrc, B);
 
@@ -109,13 +106,6 @@ module CPU (clock, AluOut, IR, test,a,b,c,d);
 
     mainCtrl main (IR[14:12], {RegDst, AluSrc, RegWrite, AluCtrl});
 
-    // These are for debugging purposes
-    assign test = AluCtrl;
-    assign a = IR[11:10];
-    assign b = IR[9:8];
-    assign c = WR;
-    assign d = AluOut;
-
     always @(negedge clock) begin
         PC <= NextPC;
     end
@@ -124,19 +114,16 @@ endmodule
 module test();
   reg clock;
   wire [15:0] WD,IR;
-  wire [2:0] test;
-  wire [15:0] a,b,c,d;
 
-  CPU test_cpu(clock,WD,IR, test, a,b,c,d);
+  CPU test_cpu(clock,WD,IR);
 
   always #1 clock = ~clock;
   
   initial begin
-    $display ("time clock IR               WD");
-    //$monitor ("%2d   %b     %b %b %b %b %b %b %b", $time,clock,test,a,b,c,d,IR,WD);
-    $monitor ("%2d   %b     %b %b", $time,clock,IR,WD);
+    $display ("time clock IR   WD");
+    $monitor ("%2d   %b     %h %h", $time,clock,IR,WD);
     clock = 1;
-    #24 $finish;
+    #14 $finish;
   end
 endmodule
 
@@ -144,19 +131,20 @@ endmodule
 
 Source Files\$ iverilog -o mips-cpu MIPS-CPU.vl ALU16.vl 16mux.v regfile16.v
 Source FIles\$ vvp mips-cpu
-time clock IR       WD
- 0   1     2009000f 0000000f
- 1   0     200a0007 00000007
- 2   1     200a0007 00000007
- 3   0     012a5824 00000007
- 4   1     012a5824 00000007
- 5   0     012b5022 00000008
- 6   1     012b5022 00000008
- 7   0     014b5025 0000000f
- 8   1     014b5025 0000000f
- 9   0     016a482a 00000001
-10   1     016a482a 00000001
-11   0     014b482a 00000000
-12   1     014b482a 00000000
-
+time clock IR   WD
+ 0   1     410f 000f
+ 1   0     4207 0007
+ 2   1     4207 0007
+ 3   0     06c0 0007
+ 4   1     06c0 0007
+ 5   0     6780 0008
+ 6   1     6780 0008
+ 7   0     1b80 000f
+ 8   1     1b80 000f
+ 9   0     2bc0 0016
+10   1     2bc0 0016
+11   0     7e40 0000
+12   1     7e40 0000
+13   0     7b40 0001
+14   1     7b40 0001
 */
