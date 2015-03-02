@@ -1,3 +1,13 @@
+/* CS 385 - Semester Project
+
+   Authors:
+   Robert Rotaru
+   Bryan Bigelow
+   Anthony Cerritelli
+
+   Content:
+   16-bit multiplexer in Verilog
+*/
 module mux4x1(i0,i1,i2,i3,select,O); 
 	input i0,i1,i2,i3;
 	input [1:0] select;
@@ -33,6 +43,7 @@ module mux16Bit4x1(i0, i1, i2, i3, select, O);
 			mux15(i0[15], i1[15], i2[15], i3[15], select, O[15]);
 endmodule
 
+/*
 module testing ();
 
  reg [15:0] i0, i1, i2, i3;
@@ -55,3 +66,4 @@ module testing ();
    $monitor ("%b %b", s, O);
  
 endmodule 
+*/

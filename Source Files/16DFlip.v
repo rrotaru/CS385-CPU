@@ -1,3 +1,13 @@
+/* CS 385 - Semester Project
+
+   Authors:
+   Robert Rotaru
+   Bryan Bigelow
+   Anthony Cerritelli
+
+   Content:
+   16-bit D Flip Flop in Verilog
+*/
 module D_16_Flip_flop(D,CLK,Q);
 	input [15:0] D;
 	input CLK;
@@ -41,6 +51,7 @@ module D_latch(D,C,Q);
    not  not1  (D1,D);
 endmodule
 
+/*
 module testing ();
 	reg [15:0] D;
 	reg CLK;
@@ -64,3 +75,4 @@ module testing ();
    $monitor ("%b %b", CLK, Q);
  
 endmodule 
+*/

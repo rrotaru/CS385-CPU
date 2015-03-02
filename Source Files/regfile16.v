@@ -1,3 +1,14 @@
+/* CS 385 - Semester Project
+
+   Authors:
+   Robert Rotaru
+   Bryan Bigelow
+   Anthony Cerritelli
+
+   Content:
+   16-bit register file in Verilog
+*/
+
 // Simplified version of MIPS register file (4 registers, 16-bit data)
 
 // For the project MIPS (4-registers, 16-bit data):
@@ -21,8 +32,8 @@ module reg_file (rr1,rr2,wr,wd,regwrite,rd1,rd2,clock);
 
 // output port
 
-   mux16Bit4x1  mux1 (0,q1,q2,q3,rr1,rd1),
-                mux2 (0,q1,q2,q3,rr2,rd2);
+   mux16Bit4x1  mux1 (16'b0,q1,q2,q3,rr1,rd1),
+                mux2 (16'b0,q1,q2,q3,rr2,rd2);
 
 // input port
 
@@ -81,7 +92,7 @@ module D_latch(D,C,Q);
         nand4 (Q1,y,Q); 
    not  not1  (D1,D);
 endmodule
-
+/*
 module mux4x1(i0,i1,i2,i3,select,O); 
   input i0,i1,i2,i3;
   input [1:0] select;
@@ -116,7 +127,7 @@ module mux16Bit4x1(i0, i1, i2, i3, select, O);
       mux14(i0[14], i1[14], i2[14], i3[14], select, O[14]),
       mux15(i0[15], i1[15], i2[15], i3[15], select, O[15]);
 endmodule
-
+*/
 module decoder (S1,S0,D3,D2,D1,D0); 
    input S0,S1; 
    output D0,D1,D2,D3; 
@@ -130,7 +141,7 @@ module decoder (S1,S0,D3,D2,D1,D0);
        a3 (D3,   S1,   S0); 
 endmodule 
 
-
+/*
 module testing ();
 
  reg [1:0] rr1,rr2,wr;
@@ -142,10 +153,27 @@ module testing ();
 
  initial 
    begin  
-
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b00; wd=16'b0000111100001111;regwrite = 1; clock=0;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b00; wd=16'b1011001011110000;regwrite = 1; clock=1;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b00; wd=16'b1011001011110000;regwrite = 1; clock=0;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b00; wd=16'b0000111100001111;regwrite = 1; clock=1;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b01; wd=16'b0000111100001111;regwrite = 1; clock=0;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b01; wd=16'b1011001011110000;regwrite = 1; clock=0;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b01; wd=16'b1011001011110000;regwrite = 1; clock=1;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b01; wd=16'b0000111100001111;regwrite = 1; clock=0;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b10; wd=16'b0000111100001111;regwrite = 1; clock=1;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b10; wd=16'b1011001011110000;regwrite = 1; clock=0;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b10; wd=16'b1011001011110000;regwrite = 1; clock=1;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b10; wd=16'b0000111100001111;regwrite = 1; clock=0;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b11; wd=16'b0000111100001111;regwrite = 1; clock=1;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b11; wd=16'b1011001011110000;regwrite = 1; clock=1;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b11; wd=16'b1011001011110000;regwrite = 1; clock=1;
+     #10 rr1=2'b01; rr2=2'b10; wr=2'b11; wd=16'b0000111100001111;regwrite = 1; clock=1;
+     #10 regwrite=0;
+    
      #10 regwrite=1; //enable writing
 
-     #10 wd=16'b0000000000000000;       // set write data
+     #10 wd=16'b1010101010101010;       // set write data
 
      #10      rr1=0;rr2=0;clock=0;
      #10 wr=1;rr1=1;rr2=1;clock=1;
@@ -157,7 +185,7 @@ module testing ();
 
      #10 regwrite=0; //disable writing
 
-     #10 wd=16'b1000000000000001;       // set write data
+     #10 wd=16'b0000000011111111;       // set write data
 
      #10 wr=1;rr1=1;rr2=1;clock=1;
      #10                  clock=0;
@@ -168,7 +196,7 @@ module testing ();
 
      #10 regwrite=1; //enable writing
 
-     #10 wd=16'b0000000000000001;       // set write data
+     #10 wd=16'b1111111100000000;       // set write data
 
      #10 wr=1;rr1=1;rr2=1;clock=1;
      #10                  clock=0;
@@ -179,11 +207,12 @@ module testing ();
 
    end 
 
- initial
-   $monitor ("regwrite=%d clock=%d rr1=%d rr2=%d wr=%d wd=%b rd1=%d rd2=%d",regwrite,clock,rr1,rr2,wr,wd,rd1,rd2);
- 
+   initial begin
+   $display("                time c r wr wd               rr1 rr2 rd1              rd2");
+   $monitor ("%d %b %b %b %b %b  %b  %b %b",$time,clock,regwrite,wr,wd,rr1,rr2,rd1,rd2);
+   end
 endmodule 
-
+*/
 
 /* Test results
 
