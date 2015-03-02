@@ -97,16 +97,6 @@ module fulladder (S,C,x,y,z);
    or g1(C,D2,D1); 
 endmodule 
 
-
-module mux2x1(A,B,select,OUT); 
-   input A,B,select; 
-   output OUT; 
-   reg OUT; 
-   always @ (select or A or B) 
-         if (select == 0) OUT = A; 
-         else OUT = B; 
-endmodule
-
 module mux2x1(A,B,select,OUT);
 	input A,B,select;
 	output OUT;
@@ -115,7 +105,7 @@ module mux2x1(A,B,select,OUT);
 		g2(y,B,select);
 	or	g3(OUT,x,y);
 endmodule
-
+/*
 module mux4x1(i0,i1,i2,i3,select,O); 
 	input i0,i1,i2,i3;
 	input [1:0] select;
@@ -127,10 +117,10 @@ module mux4x1(i0,i1,i2,i3,select,O);
 		g4(z,i3,select[1],select[0]);
 	or	g5(O,w,x,y,z);
 endmodule
-
+*/
 
 // Test Module 
-
+/*
 module testALU;
    reg [15:0] a;
    reg [15:0] b;
@@ -159,7 +149,6 @@ module testALU;
     $monitor ("op = %b a = %b b = %b result = %b zero = %b",op,a,b,result,zero);
 
 endmodule
-
 
 /* Test Results
 >iverilog -o alu-16 ALU16.vl
