@@ -199,7 +199,7 @@ module fulladder (S,C,x,y,z);
    or g1(C,D2,D1); 
 endmodule 
 
-// 1-bit ALU for bits 0-2
+// 1-bit ALU for bits 0-14
 module ALU1 (a,b,binvert,op,less,carryin,carryout,result);
    input a,b,less,carryin,binvert;
    input [1:0] op;
@@ -279,16 +279,6 @@ module mainCtrl (op, ctrl);
 
 endmodule
 
-module aluCtrl (aluOp, func, aluCtrl);
-
-    input [1:0] aluOp;
-    input [5:0] func;
-    output reg [2:0] aluCtrl;
-
-    
-
-endmodule
-
 module CPU (clock, AluOut, IR);
 
     input clock;
@@ -347,8 +337,8 @@ module test();
   always #1 clock = ~clock;
   
   initial begin
-    $display ("time clock IR   WD");
-    $monitor ("%2d   %b     %h %h", $time,clock,IR,WD);
+    $display ("time clock\tIR\tIR\t\t\tWD\tWD");
+    $monitor ("%2d   %b\t\t%h\t%b\t%h\t%b", $time,clock,IR,IR,WD,WD);
     clock = 1;
     #14 $finish;
   end
