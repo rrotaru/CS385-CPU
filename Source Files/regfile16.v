@@ -157,7 +157,7 @@ module testing ();
 
      #10 regwrite=0; //disable writing
 
-     #10 wd=16'b0000000000000001;       // set write data
+     #10 wd=16'b1000000000000001;       // set write data
 
      #10 wr=1;rr1=1;rr2=1;clock=1;
      #10                  clock=0;
@@ -180,7 +180,7 @@ module testing ();
    end 
 
  initial
-   $monitor ("regwrite=%d clock=%d rr1=%d rr2=%d wr=%d wd=%d rd1=%d rd2=%d",regwrite,clock,rr1,rr2,wr,wd,rd1,rd2);
+   $monitor ("regwrite=%d clock=%d rr1=%d rr2=%d wr=%d wd=%b rd1=%d rd2=%d",regwrite,clock,rr1,rr2,wr,wd,rd1,rd2);
  
 endmodule 
 
