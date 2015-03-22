@@ -275,18 +275,20 @@ module mainCtrl (op, ctrl);
         3'b100: ctrl <= 6'b011010; // ADDI *note, this may be 3'b100 instead of 3'b010
         3'b110: ctrl <= 6'b101110; // SUB
         3'b111: ctrl <= 6'b101111; // SLT
-		
-											  //		RegDst AluSrc MemtoReg RegWrite MemRead MemWrite beq bne OpCtrl
-		// 4'b0010: ctrl <= 12'b100100000010; // AND	1		0		0		1			0		0	  0	  0   0010
-        // 4'b0011: ctrl <= 12'b100100000011; // OR		1		0		0		1			0		0	  0	  0   0011
-        // 4'b0000: ctrl <= 12'b100100000000; // ADD	1		0		0		1			0		0	  0	  0   0000
-        // 4'b0100: ctrl <= 12'b100100000100; // ADDI	1		0		0		1			0		0	  0	  0   0100
-        // 4'b0001: ctrl <= 12'b100100000001; // SUB	1		0		0		1			0		0	  0	  0   0001
-        // 4'b0111: ctrl <= 12'b100100000111; // SLT	1		0		0		1			0		0	  0	  0   0111
-		// 4'b1000: ctrl <= 12'b100100001000; // BEQ	X		0		X		0			0		0	  1	  0   1000
-		// 4'b1001: ctrl <= 12'b100100001001; // BNE	X		0		X		0			0		0	  0	  1   1001
-		// 4'b0101: ctrl <= 12'b100100000101; // LW		0		1		1		1			1		0	  0	  0   0101
-		// 4'b0110: ctrl <= 12'b100100000110; // SW		X		1		X		0			0		1	  0	  0   0110
+		    
+        // Revised AluCtrl to match our alu op codes
+        // RegDst AluSrc MemtoReg RegWrite MemRead MemWrite beq bne AluCtrl
+        // 4'b0010: ctrl <= 12'b100100000000; // AND  1   0   0   1     0   0   0   0   0010
+        // 4'b0011: ctrl <= 12'b100100000001; // OR   1   0   0   1     0   0   0   0   0011
+        // 4'b0000: ctrl <= 12'b100100000010; // ADD  1   0   0   1     0   0   0   0   0000
+        // 4'b0100: ctrl <= 12'b100100000010; // ADDI 1   0   0   1     0   0   0   0   0100
+        // 4'b0001: ctrl <= 12'b100100000110; // SUB  1   0   0   1     0   0   0   0   0001
+        // 4'b0111: ctrl <= 12'b100100000111; // SLT  1   0   0   1     0   0   0   0   0111
+        // 4'b1000: ctrl <= 12'b100100001000; // BEQ  X   0   X   0     0   0   1   0   1000
+        // 4'b1001: ctrl <= 12'b100100001001; // BNE  X   0   X   0     0   0   0   1   1001
+        // 4'b0101: ctrl <= 12'b100100000101; // LW   0   1   1   1     1   0   0   0   0101
+        // 4'b0110: ctrl <= 12'b100100000110; // SW   X   1   X   0     0   1   0   0   0110
+
     endcase
 
 endmodule
@@ -339,23 +341,19 @@ module CPU (clock, AluOut, IR);
     initial PC = 0;
 
     assign IR = IMemory[PC>>1];
+    assign SignExtend = {{8{IR[7]}},IR[7:0]};
+    reg_file rf (IR[11:10], IR[9:8], WR, WD, RegWrite, A, RD2, clock);
+    ALU fetch (3'b010, PC, 16'b10, NextPC, Unused);
+    ALU exec (AluCtrl, A, B, AluOut, Zero);
+    mainCtrl main (IR[14:12], {RegDst, AluSrc, RegWrite, AluCtrl});
+    //mainCtrl main (IR[15:12], {RegDst, AluSrc, MemtoReg, RegWrite, MemRead, MemWrite, BEQ, BNE, AluCtrl});
     // assign WR
     mux2bit2x1 muxWR (IR[9:8], IR[7:6], RegDst, WR);
+    // assign WD
+    mux16bit2x1 muxWD (DMemory[ALUOut>>1], AluOut, MemtoReg, WD)
     // assign B
     mux16bit2x1 muxB (RD2, SignExtend, AluSrc, B);
-
-    assign SignExtend = {{8{IR[7]}},IR[7:0]};
-
-    reg_file rf (IR[11:10], IR[9:8], WR, AluOut, RegWrite, A, RD2, clock);
-
-    ALU fetch (3'b010, PC, 16'b10, NextPC, Unused);
-
-    ALU exec (AluCtrl, A, B, AluOut, Zero);
-
-    mainCtrl main (IR[14:12], {RegDst, AluSrc, RegWrite, AluCtrl});
-	
-	//mainCtrl main (IR[15:12], {RegDst, AluSrc, MemtoReg, RegWrite, MemRead, MemWrite, BEQ, BNE, AluCtrl});
-
+    
     always @(negedge clock) begin
         PC <= NextPC;
     end
