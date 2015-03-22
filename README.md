@@ -1,6 +1,11 @@
 # CS385-CPU
 CPU designed in Verilog
 
+###Task Format
+
+**Task**
+* SubTask - [Contributor 1], [Contributor 2], etc
+
 ## Progress Report 1
 
 ### Tasks
@@ -35,3 +40,21 @@ CPU designed in Verilog
 ## Progress Report 2
 
 ### Tasks
+
+**16-Bit Extended Test Program**
+* Assembly - Bryan
+* Binary - Bryan
+
+**Data Memory*
+* Memory Modules -
+* SW/LW Instructions - Bryan
+
+**Branching Logic**
+* BNE/BEQ Instructions - Bryan
+* Branching Modules -
+
+**Diagrams**
+* Single-Cycle Path -
+* Internals -
+
+**Report** - Robert Rotaru, Bryan Bigelow, Anthony Cerritelli
