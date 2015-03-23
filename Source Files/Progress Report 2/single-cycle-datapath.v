@@ -268,7 +268,7 @@ module mainCtrl (op, ctrl);
     //input [2:0] op;
     input [3:0] op;
     //output reg [5:0] ctrl;
-    output reg [11:0] ctrl;
+    output reg [10:0] ctrl;
 
     always @(op) case (op)
         //3'b000: ctrl <= 6'b101000; // AND
@@ -279,18 +279,17 @@ module mainCtrl (op, ctrl);
         //3'b111: ctrl <= 6'b101111; // SLT
 		    
         // Revised AluCtrl to match our alu op codes
-                      // RegDst AluSrc MemtoReg RegWrite MemRead MemWrite beq bne AluCtrl
         //RegDst, AluSrc, MemtoReg, RegWrite, MemRead, MemWrite, BEQ, BNE, AluCtrl
-        4'b0010: ctrl <= 12'b100100000000; // AND  1   0   0   1     0   0   0   0   0010
-        4'b0011: ctrl <= 12'b100100000001; // OR   1   0   0   1     0   0   0   0   0011
-        4'b0000: ctrl <= 12'b100100000010; // ADD  1   0   0   1     0   0   0   0   0000
-        4'b0100: ctrl <= 12'b010100000010; // ADDI 1   0   0   1     0   0   0   0   0100
-        4'b0001: ctrl <= 12'b100100000110; // SUB  1   0   0   1     0   0   0   0   0001
-        4'b0111: ctrl <= 12'b100100000111; // SLT  1   0   0   1     0   0   0   0   0111
-        4'b1000: ctrl <= 12'bx0x000101000; // BEQ  X   0   X   0     0   0   1   0   1000
-        4'b1001: ctrl <= 12'bx0x000011001; // BNE  X   0   X   0     0   0   0   1   1001
-        4'b0101: ctrl <= 12'b011110000101; // LW   0   1   1   1     1   0   0   0   0101
-        4'b0110: ctrl <= 12'bx1x001000110; // SW   X   1   X   0     0   1   0   0   0110
+        4'b0010: ctrl <= 11'b10010000000; // AND  1   0   0   1     0   0   0   0   000
+        4'b0011: ctrl <= 11'b10010000001; // OR   1   0   0   1     0   0   0   0   001
+        4'b0000: ctrl <= 11'b10010000010; // ADD  1   0   0   1     0   0   0   0   010
+        4'b0100: ctrl <= 11'b01010000010; // ADDI 1   0   0   1     0   0   0   0   010
+        4'b0001: ctrl <= 11'b10010000110; // SUB  1   0   0   1     0   0   0   0   110
+        4'b0111: ctrl <= 11'b10010000111; // SLT  1   0   0   1     0   0   0   0   111
+        4'b1000: ctrl <= 11'bx0x00010110; // BEQ  X   0   X   0     0   0   1   0   110
+        4'b1001: ctrl <= 11'bx0x00001110; // BNE  X   0   X   0     0   0   0   1   110
+        4'b0101: ctrl <= 11'b01111000010; // LW   0   1   1   1     1   0   0   0   010
+        4'b0110: ctrl <= 11'bx1x00100010; // SW   X   1   X   0     0   1   0   0   010
 
     endcase
 
@@ -304,8 +303,8 @@ module CPU (clock, AluOut, IR);
     reg[15:0] IMemory[0:511];
 	  reg[15:0] DMemory[0:511];
     wire [15:0] IR, NextPC, A, B, AluOut, RD2, SignExtend, PCplus4, Target;
-    //wire [2:0] AluCtrl;
-	  wire [3:0] AluCtrl;
+    wire [2:0] AluCtrl;
+	  //wire [3:0] AluCtrl;
     wire [1:0] WR;
 
     /* Test Program */
@@ -320,25 +319,36 @@ module CPU (clock, AluOut, IR);
         //IMemory[5] = 16'b0010101111000000;  // add  $t3, $t2, $t3  ($t3=22)  0010 10 11 11 xxxxxx    2bc0      0016
         //IMemory[6] = 16'b0111111001000000;  // slt  $t1, $t3, $t2  ($t1= 0)  0111 11 10 01 xxxxxx    7e40      0000
         //IMemory[7] = 16'b0111101101000000;  // slt  $t1, $t2, $t3  ($t1= 1)  0111 10 11 01 xxxxxx    7b40      0001
-		
-    		IMemory[0] = 16'b0101000100000000; //lw $1, 0($0)		5
-    		IMemory[1] = 16'b0101001000000100; //lw $2, 4($0)		7
-    		IMemory[2] = 16'b0111011011000000; //slt $3, $1, $2	1
-    		IMemory[3] = 16'b1000001100001000; //beq $3, $0, 8 
-    		IMemory[4] = 16'b0110000100000100; //sw $1, 4($0)		5
-    		IMemory[5] = 16'b0110001000000000; //sw $2, 0($0)		7
-    		IMemory[6] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
-    		IMemory[7] = 16'b0101000100000000; //lw $1, 0($0)		7
-    		IMemory[8] = 16'b0101001000000100; //lw $2, 4($0)		5
-    		IMemory[9] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
-    		IMemory[10] = 16'b0001011001000000; //sub $1, $1, $2	2
-    		IMemory[11] = 16'b1001000100000100; //bne $1, $0, 4
-    		IMemory[12] = 16'b0110000100001000; //sw $1, 8($0)
-    		IMemory[13] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
-    		
-    		DMemory [0] = 16'b0000000000000101;
-    		DMemory [1] = 16'b0000000000000111;
-    		DMemory [2] = 16'b0000000000000000;
+		    
+        //Revised with new op codes - in working condition
+        //IMemory[0] = 16'b0100000100001111;  // addi $t1, $0,  15   ($t1=15)  0100 00 01 00001111     410f      000f
+        //IMemory[1] = 16'b0100001000000111;  // addi $t2, $0,  7    ($t2= 7)  0100 00 10 00000111     4207      0007
+        //IMemory[2] = 16'b0010011011000000;  // and  $t3, $t1, $t2  ($t3= 7)  0000 01 10 11 xxxxxx    06c0      0007
+        //IMemory[3] = 16'b0001011110000000;  // sub  $t2, $t1, $t3  ($t2= 8)  0110 01 11 10 xxxxxx    6780      0008
+        //IMemory[4] = 16'b0011101110000000;  // or   $t2, $t2, $t3  ($t2=15)  0001 10 11 10 xxxxxx    1b80      000f
+        //IMemory[5] = 16'b0000101111000000;  // add  $t3, $t2, $t3  ($t3=22)  0010 10 11 11 xxxxxx    2bc0      0016
+        //IMemory[6] = 16'b0111111001000000;  // slt  $t1, $t3, $t2  ($t1= 0)  0111 11 10 01 xxxxxx    7e40      0000
+        //IMemory[7] = 16'b0111101101000000;  // slt  $t1, $t2, $t3  ($t1= 1)  0111 10 11 01 xxxxxx    7b40      0001
+
+        //Adresses not being computed correctly for lw/sw
+    		IMemory[0] = 16'b0101000100000001; //lw $1, 0($0)		5
+    		//IMemory[1] = 16'b0101001000000100; //lw $2, 4($0)		7
+    		//IMemory[2] = 16'b0111011011000000; //slt $3, $1, $2	1
+    		//IMemory[3] = 16'b1000001100001000; //beq $3, $0, 8 
+        //IMemory[4] = 16'b0110000100000100; //sw $1, 4($0)		5
+    		//IMemory[5] = 16'b0110001000000000; //sw $2, 0($0)		7
+    		//IMemory[6] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
+    		//IMemory[7] = 16'b0101000100000000; //lw $1, 0($0)		7
+    		//IMemory[8] = 16'b0101001000000100; //lw $2, 4($0)		5
+    		//IMemory[9] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
+    		//IMemory[10] = 16'b0001011001000000; //sub $1, $1, $2	2
+    		//IMemory[11] = 16'b1001000100000100; //bne $1, $0, 4
+    		//IMemory[12] = 16'b0110000100001000; //sw $1, 8($0)
+    		//IMemory[13] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
+
+    		DMemory[0] = 16'b0000000000000101;
+    		//DMemory[1] = 16'b0000000000000111;
+    		//DMemory[2] = 16'b0000000000000000;
     end
 
     initial PC = 0;
@@ -347,7 +357,7 @@ module CPU (clock, AluOut, IR);
     assign SignExtend = {{8{IR[7]}},IR[7:0]};
     reg_file rf (IR[11:10], IR[9:8], WR, WD, RegWrite, A, RD2, clock);
     ALU fetch (3'b010, PC, 16'b10, PCplus4, Unused1);
-    ALU exec (AluCtrl[2:0], A, B, AluOut, Zero);
+    ALU exec (AluCtrl, A, B, AluOut, Zero);
     ALU branch (3'b010,SignExtend<<1,PCplus4,Target,Unused2);
     //mainCtrl main (IR[14:12], {RegDst, AluSrc, RegWrite, AluCtrl});
     mainCtrl main (IR[15:12], {RegDst, AluSrc, MemtoReg, RegWrite, MemRead, MemWrite, BEQ, BNE, AluCtrl});
@@ -361,14 +371,10 @@ module CPU (clock, AluOut, IR);
     or beq_bne(beq_or_bne, BEQ, BNE);
     and branch(branch_and_zero, beq_or_bne, Zero);
     mux16bit2x1 muxBranch (PCplus4, Target, branch_and_zero, NextPC);
-    
+
     always @(negedge clock) begin
         PC <= NextPC;
         if (MemWrite) DMemory[AluOut>>1] <= RD2;
-        
-        //if (MemRead) AluOut <= RD2;
-        
-        
     end
 endmodule
 
