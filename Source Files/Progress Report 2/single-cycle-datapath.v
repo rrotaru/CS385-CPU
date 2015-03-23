@@ -262,93 +262,78 @@ module ALU (op,a,b,result,zero);
 
 endmodule
 
+module branchCtrl (BranchOp, Zero, BranchOut);
+
+    input [1:0] BranchOp;
+    input Zero;
+    output BranchOut;
+    wire not_Zero, w1, w2;
+
+    not G1(not_Zero, Zero);
+    and G2(w1, BranchOp[0], Zero),
+        G3(w2, BranchOp[1], not_Zero);
+    or  G4(BranchOut, w1, w2);
+
+endmodule
+
 /*** 16-bit CPU control source code ***/
 
 module mainCtrl (op, ctrl);
     //input [2:0] op;
     input [3:0] op;
     //output reg [5:0] ctrl;
-    output reg [10:0] ctrl;
+    output reg [9:0] ctrl;
 
     always @(op) case (op)
-        //3'b000: ctrl <= 6'b101000; // AND
-        //3'b001: ctrl <= 6'b101001; // OR 
-        //3'b010: ctrl <= 6'b101010; // ADD
-        //3'b100: ctrl <= 6'b011010; // ADDI *note, this may be 3'b100 instead of 3'b010
-        //3'b110: ctrl <= 6'b101110; // SUB
-        //3'b111: ctrl <= 6'b101111; // SLT
-		    
-        // Revised AluCtrl to match our alu op codes
-        //RegDst, AluSrc, MemtoReg, RegWrite, MemRead, MemWrite, BEQ, BNE, AluCtrl
-        4'b0010: ctrl <= 11'b10010000000; // AND  1   0   0   1     0   0   0   0   000
-        4'b0011: ctrl <= 11'b10010000001; // OR   1   0   0   1     0   0   0   0   001
-        4'b0000: ctrl <= 11'b10010000010; // ADD  1   0   0   1     0   0   0   0   010
-        4'b0100: ctrl <= 11'b01010000010; // ADDI 1   0   0   1     0   0   0   0   010
-        4'b0001: ctrl <= 11'b10010000110; // SUB  1   0   0   1     0   0   0   0   110
-        4'b0111: ctrl <= 11'b10010000111; // SLT  1   0   0   1     0   0   0   0   111
-        4'b1000: ctrl <= 11'bx0x00010110; // BEQ  X   0   X   0     0   0   1   0   110
-        4'b1001: ctrl <= 11'bx0x00001110; // BNE  X   0   X   0     0   0   0   1   110
-        4'b0101: ctrl <= 11'b01111000010; // LW   0   1   1   1     1   0   0   0   010
-        4'b0110: ctrl <= 11'bx1x00100010; // SW   X   1   X   0     0   1   0   0   010
+                                         // RegDst, AluSrc, MemtoReg, RegWrite, MemWrite, BEQ, BNE, AluCtrl
+        4'b0000: ctrl <= 10'b1001000010; // ADD  1   0   0   1   0   0   0   010
+        4'b0001: ctrl <= 10'b1001000110; // SUB  1   0   0   1   0   0   0   110
+        4'b0010: ctrl <= 10'b1001000000; // AND  1   0   0   1   0   0   0   000
+        4'b0011: ctrl <= 10'b1001000001; // OR   1   0   0   1   0   0   0   001
+        4'b0100: ctrl <= 10'b0101000010; // ADDI 1   0   0   1   0   0   0   010
+        4'b0101: ctrl <= 10'b0111000010; // LW   0   1   1   1   0   0   0   010
+        4'b0110: ctrl <= 10'b0100100010; // SW   X   1   X   0   1   0   0   010
+        4'b0111: ctrl <= 10'b1001000111; // SLT  1   0   0   1   0   0   0   111
+        4'b1000: ctrl <= 10'b0000001110; // BEQ  X   0   X   0   0   1   0   110
+        4'b1001: ctrl <= 10'b0000010110; // BNE  X   0   X   0   0   0   1   110
 
     endcase
 
 endmodule
 
-module CPU (clock, AluOut, IR);
+module CPU (clock, WD, IR);
 
     input clock;
     output [15:0] AluOut, IR, WD;
-    reg[15:0] PC;
-    reg[15:0] IMemory[0:511];
-	  reg[15:0] DMemory[0:511];
-    wire [15:0] IR, NextPC, A, B, AluOut, RD2, SignExtend, PCplus4, Target;
+    reg[15:0] PC, IMemory[0:1023], DMemory[0:1023];
+    wire [15:0] IR, NextPC, A, B, AluOut, RD2, SignExtend, PCplus2, Target;
     wire [2:0] AluCtrl;
-	  //wire [3:0] AluCtrl;
-    wire [1:0] WR;
+    wire [1:0] WR, Branch;
 
     /* Test Program */
     initial begin 
-        //                                           Assembly     | Result |      Binary IR       | Hex IR | Hex Result
-        //                                  -----------------------------------------------------------------------------
-        //IMemory[0] = 16'b0100000100001111;  // addi $t1, $0,  15   ($t1=15)  0100 00 01 00001111     410f      000f
-        //IMemory[1] = 16'b0100001000000111;  // addi $t2, $0,  7    ($t2= 7)  0100 00 10 00000111     4207      0007
-        //IMemory[2] = 16'b0000011011000000;  // and  $t3, $t1, $t2  ($t3= 7)  0000 01 10 11 xxxxxx    06c0      0007
-        //IMemory[3] = 16'b0110011110000000;  // sub  $t2, $t1, $t3  ($t2= 8)  0110 01 11 10 xxxxxx    6780      0008
-        //IMemory[4] = 16'b0001101110000000;  // or   $t2, $t2, $t3  ($t2=15)  0001 10 11 10 xxxxxx    1b80      000f
-        //IMemory[5] = 16'b0010101111000000;  // add  $t3, $t2, $t3  ($t3=22)  0010 10 11 11 xxxxxx    2bc0      0016
-        //IMemory[6] = 16'b0111111001000000;  // slt  $t1, $t3, $t2  ($t1= 0)  0111 11 10 01 xxxxxx    7e40      0000
-        //IMemory[7] = 16'b0111101101000000;  // slt  $t1, $t2, $t3  ($t1= 1)  0111 10 11 01 xxxxxx    7b40      0001
-		    
-        //Revised with new op codes - in working condition
-        //IMemory[0] = 16'b0100000100001111;  // addi $t1, $0,  15   ($t1=15)  0100 00 01 00001111     410f      000f
-        //IMemory[1] = 16'b0100001000000111;  // addi $t2, $0,  7    ($t2= 7)  0100 00 10 00000111     4207      0007
-        //IMemory[2] = 16'b0010011011000000;  // and  $t3, $t1, $t2  ($t3= 7)  0000 01 10 11 xxxxxx    06c0      0007
-        //IMemory[3] = 16'b0001011110000000;  // sub  $t2, $t1, $t3  ($t2= 8)  0110 01 11 10 xxxxxx    6780      0008
-        //IMemory[4] = 16'b0011101110000000;  // or   $t2, $t2, $t3  ($t2=15)  0001 10 11 10 xxxxxx    1b80      000f
-        //IMemory[5] = 16'b0000101111000000;  // add  $t3, $t2, $t3  ($t3=22)  0010 10 11 11 xxxxxx    2bc0      0016
-        //IMemory[6] = 16'b0111111001000000;  // slt  $t1, $t3, $t2  ($t1= 0)  0111 11 10 01 xxxxxx    7e40      0000
-        //IMemory[7] = 16'b0111101101000000;  // slt  $t1, $t2, $t3  ($t1= 1)  0111 10 11 01 xxxxxx    7b40      0001
+        // Simple program to load 2 from DMemory[0] into $1 and 4 from
+        // DMemory[1] into $2, then loops to decrement $2 by $1 until 
+        // $2 reaches 0. Finishes by storing 0 into DMemory[1].
 
-        //Adresses not being computed correctly for lw/sw
-    		IMemory[0] = 16'b0101000100000001; //lw $1, 0($0)		5
-    		//IMemory[1] = 16'b0101001000000100; //lw $2, 4($0)		7
-    		//IMemory[2] = 16'b0111011011000000; //slt $3, $1, $2	1
-    		//IMemory[3] = 16'b1000001100001000; //beq $3, $0, 8 
-        //IMemory[4] = 16'b0110000100000100; //sw $1, 4($0)		5
-    		//IMemory[5] = 16'b0110001000000000; //sw $2, 0($0)		7
-    		//IMemory[6] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
-    		//IMemory[7] = 16'b0101000100000000; //lw $1, 0($0)		7
-    		//IMemory[8] = 16'b0101001000000100; //lw $2, 4($0)		5
-    		//IMemory[9] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
-    		//IMemory[10] = 16'b0001011001000000; //sub $1, $1, $2	2
-    		//IMemory[11] = 16'b1001000100000100; //bne $1, $0, 4
-    		//IMemory[12] = 16'b0110000100001000; //sw $1, 8($0)
-    		//IMemory[13] = 16'b0000000000000000; //add $0, $0, $0	NO-OP
+        IMemory[0]  = 16'b0101000100000000;  // lw $1, 0($0)    2   Load DMemory[0] into $1
+        IMemory[1]  = 16'b0101001000000010;  // lw $2, 2($0)    4   Load DMemory[1] into $2
+        IMemory[2]  = 16'b0111011011000000;  // slt $3, $1, $2  1   Set $3 on $1 < $2
+        IMemory[3]  = 16'b1000110000000100;  // beq $3, $0, 4   X   Branch to IMemory[8] if $3 == 0
+        IMemory[4]  = 16'b0110000100000010;  // sw $1, 2($0)    X   Store $1 into DMemory[1]
+        IMemory[5]  = 16'b0110001000000000;  // sw $2, 0($0)    X   Store $2 into DMemory[2]
+        IMemory[6]  = 16'b0000000000000000;  // add $0, $0, $0	0   No operation
+        IMemory[7]  = 16'b0101000100000000;  // lw $1, 0($0)    4   Load DMemory[0] into $1
+        IMemory[8]  = 16'b0101001000000010;  // lw $2, 2($0)    2   Load DMemory[1] into $2
+        IMemory[9]  = 16'b0000000000000000;  // add $0, $0, $0	0   No operation
+        IMemory[10] = 16'b0001011001000000;  // sub $1, $1, $2  2   $1 <- $1 - $2
+        IMemory[11] = 16'b1001000111111100;  // bne $1, $0, -4  X   Branch to IMemory[8] if $1 != 0
+        IMemory[12] = 16'b0110000100001000;  // sw  $1, 2($0)   0   Store $1 into DMemory[1]
+        IMemory[13] = 16'b0000000000000000;  // add $0, $0, $0	0   No operation
 
-    		DMemory[0] = 16'b0000000000000101;
-    		//DMemory[1] = 16'b0000000000000111;
-    		//DMemory[2] = 16'b0000000000000000;
+        // Data
+        DMemory [0] = 16'h2;
+        DMemory [1] = 16'h4;
     end
 
     initial PC = 0;
@@ -356,21 +341,24 @@ module CPU (clock, AluOut, IR);
     assign IR = IMemory[PC>>1];
     assign SignExtend = {{8{IR[7]}},IR[7:0]};
     reg_file rf (IR[11:10], IR[9:8], WR, WD, RegWrite, A, RD2, clock);
-    ALU fetch (3'b010, PC, 16'b10, PCplus4, Unused1);
+    ALU fetch (3'b010, PC, 16'b10, PCplus2, Unused1);
     ALU exec (AluCtrl, A, B, AluOut, Zero);
-    ALU branch (3'b010,SignExtend<<1,PCplus4,Target,Unused2);
-    //mainCtrl main (IR[14:12], {RegDst, AluSrc, RegWrite, AluCtrl});
-    mainCtrl main (IR[15:12], {RegDst, AluSrc, MemtoReg, RegWrite, MemRead, MemWrite, BEQ, BNE, AluCtrl});
+    ALU branch (3'b010,SignExtend<<1,PCplus2,Target,Unused2);
+
+    mainCtrl main (IR[15:12], {RegDst, AluSrc, MemtoReg, RegWrite, MemWrite, Branch, AluCtrl});
+    
     // assign WR
     mux2bit2x1 muxWR (IR[9:8], IR[7:6], RegDst, WR);
+    
     // assign WD
     mux16bit2x1 muxWD (AluOut, DMemory[AluOut>>1], MemtoReg, WD);
+    
     // assign B
     mux16bit2x1 muxB (RD2, SignExtend, AluSrc, B);
+    
     // assign NextPC
-    or beq_bne(beq_or_bne, BEQ, BNE);
-    and branch(branch_and_zero, beq_or_bne, Zero);
-    mux16bit2x1 muxBranch (PCplus4, Target, branch_and_zero, NextPC);
+    branchCtrl bctrl (Branch, Zero, BranchOut);
+    mux16bit2x1 muxBranch (PCplus2, Target, BranchOut, NextPC);
 
     always @(negedge clock) begin
         PC <= NextPC;
@@ -392,7 +380,7 @@ module test();
     $display ("time clock\tIR\tIR\t\t\tWD\tWD");
     $monitor ("%2d   %b\t\t%h\t%b\t%h\t%b", $time,clock,IR,IR,WD,WD);
     clock = 1;
-    #14 $finish;
+    #35 $finish;
   end
 endmodule
 
@@ -400,20 +388,41 @@ endmodule
 
 Source Files\$ iverilog -o mips-cpu single-cycle-datapath.vl
 Source FIles\$ vvp mips-cpu
-time clock      IR      IR                      WD      WD
- 0   1          410f    0100000100001111        000f    0000000000001111
- 1   0          4207    0100001000000111        0007    0000000000000111
- 2   1          4207    0100001000000111        0007    0000000000000111
- 3   0          06c0    0000011011000000        0007    0000000000000111
- 4   1          06c0    0000011011000000        0007    0000000000000111
- 5   0          6780    0110011110000000        0008    0000000000001000
- 6   1          6780    0110011110000000        0008    0000000000001000
- 7   0          1b80    0001101110000000        000f    0000000000001111
- 8   1          1b80    0001101110000000        000f    0000000000001111
- 9   0          2bc0    0010101111000000        0016    0000000000010110
-10   1          2bc0    0010101111000000        0016    0000000000010110
-11   0          7e40    0111111001000000        0000    0000000000000000
-12   1          7e40    0111111001000000        0000    0000000000000000
-13   0          7b40    0111101101000000        0001    0000000000000001
-14   1          7b40    0111101101000000        0001    0000000000000001
+time clock	IR	IR			WD	WD
+ 0   1		5100	0101000100000000	0002	0000000000000010
+ 1   0		5202	0101001000000010	0004	0000000000000100
+ 2   1		5202	0101001000000010	0004	0000000000000100
+ 3   0		76c0	0111011011000000	0001	0000000000000001
+ 4   1		76c0	0111011011000000	0001	0000000000000001
+ 5   0		8c04	1000110000000100	0001	0000000000000001
+ 6   1		8c04	1000110000000100	0001	0000000000000001
+ 7   0		6102	0110000100000010	0002	0000000000000010
+ 8   1		6102	0110000100000010	0002	0000000000000010
+ 9   0		6200	0110001000000000	0000	0000000000000000
+10   1		6200	0110001000000000	0000	0000000000000000
+11   0		0000	0000000000000000	0000	0000000000000000
+12   1		0000	0000000000000000	0000	0000000000000000
+13   0		5100	0101000100000000	0004	0000000000000100
+14   1		5100	0101000100000000	0004	0000000000000100
+15   0		5202	0101001000000010	0002	0000000000000010
+16   1		5202	0101001000000010	0002	0000000000000010
+17   0		0000	0000000000000000	0000	0000000000000000
+18   1		0000	0000000000000000	0000	0000000000000000
+19   0		1640	0001011001000000	0002	0000000000000010
+20   1		1640	0001011001000000	0002	0000000000000010
+21   0		91fc	1001000111111100	fffe	1111111111111110
+22   1		91fc	1001000111111100	fffe	1111111111111110
+23   0		5202	0101001000000010	0002	0000000000000010
+24   1		5202	0101001000000010	0002	0000000000000010
+25   0		0000	0000000000000000	0000	0000000000000000
+26   1		0000	0000000000000000	0000	0000000000000000
+27   0		1640	0001011001000000	0000	0000000000000000
+28   1		1640	0001011001000000	0000	0000000000000000
+29   0		91fc	1001000111111100	0000	0000000000000000
+30   1		91fc	1001000111111100	0000	0000000000000000
+31   0		6108	0110000100001000	0008	0000000000001000
+32   1		6108	0110000100001000	0008	0000000000001000
+33   0		0000	0000000000000000	0000	0000000000000000
+34   1		0000	0000000000000000	0000	0000000000000000
+35   0		xxxx	xxxxxxxxxxxxxxxx	000X	0000000000000xxx
 */
