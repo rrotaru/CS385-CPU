@@ -46,15 +46,15 @@ CPU designed in Verilog
 * Binary - Bryan
 
 **Data Memory*
-* Memory Modules -
-* SW/LW Instructions - Bryan
+* Memory Modules - Rob, Tony
+* SW/LW Instructions - Bryan, Rob, Tony
 
 **Branching Logic**
-* BNE/BEQ Instructions - Bryan
-* Branching Modules -
+* BNE/BEQ Instructions - Bryan, Rob, Tony
+* Branching Modules - Rob, Tony
 
 **Diagrams**
-* Single-Cycle Path -
+* Single-Cycle Path - Tony
 * Internals -
 
 **Report** - Robert Rotaru, Bryan Bigelow, Anthony Cerritelli
