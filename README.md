@@ -45,7 +45,7 @@ CPU designed in Verilog
 * Assembly - Bryan
 * Binary - Bryan
 
-**Data Memory*
+**Data Memory**
 * Memory Modules - Rob, Tony
 * SW/LW Instructions - Bryan, Rob, Tony
 
