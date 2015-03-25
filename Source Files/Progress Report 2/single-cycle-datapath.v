@@ -329,7 +329,12 @@ module CPU (clock, WD, IR);
         IMemory[10] = 16'b0001011001000000;  // sub $1, $1, $2  2   $1 <- $1 - $2
         IMemory[11] = 16'b1001000111111100;  // bne $1, $0, -4  X   Branch to IMemory[8] if $1 != 0
         IMemory[12] = 16'b0110000100000010;  // sw  $1, 2($0)   0   Store $1 into DMemory[1]
-        IMemory[13] = 16'b0101001000000010;  // lw $2, 2($0)    0   Load DMemory[1] into $2
+        IMemory[13] = 16'b1000010000000100;  // beq $1, $0, 4   X   Branch to IMemory[18] if $1 == 0
+        IMemory[14] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
+        IMemory[15] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
+        IMemory[16] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
+        IMemory[17] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
+        IMemory[18] = 16'b0101001000000010;  // lw $2, 2($0)    0   Load DMemory[1] into $2
 
         // Data
         DMemory [0] = 16'h2;
@@ -380,7 +385,7 @@ module test();
     $display ("time clock\tIR\tIR\t\t\tWD\tWD");
     $monitor ("%2d   %b\t\t%h\t%b\t%h\t%b", $time,clock,IR,IR,WD,WD);
     clock = 1;
-    #35 $finish;
+    #37 $finish;
   end
 endmodule
 
@@ -422,7 +427,9 @@ time clock      IR      IR                      WD      WD
 30   1          91fc    1001000111111100        0000    0000000000000000
 31   0          6102    0110000100000010        0002    0000000000000010
 32   1          6102    0110000100000010        0002    0000000000000010
-33   0          5202    0101001000000010        0000    0000000000000000
-34   1          5202    0101001000000010        0000    0000000000000000
-35   0          xxxx    xxxxxxxxxxxxxxxx        xxxx    xxxxxxxxxxxxxxxx
+33   0          8404    1000010000000100        0000    0000000000000000
+34   1          8404    1000010000000100        0000    0000000000000000
+35   0          5202    0101001000000010        0000    0000000000000000
+36   1          5202    0101001000000010        0000    0000000000000000
+37   0          xxxx    xxxxxxxxxxxxxxxx        xxxx    xxxxxxxxxxxxxxxx
 */
