@@ -304,7 +304,6 @@ module CPU (clock, PC, IFID_IR, IDEX_IR, WD);
 
     input clock;
     output [15:0] PC, IFID_IR, IDEX_IR, WD;
-    //output [15:0] PC, AluOut, IR, WD;
 
   initial begin 
 // Program with nop's - no hazards
@@ -347,19 +346,18 @@ module CPU (clock, PC, IFID_IR, IDEX_IR, WD);
 // ID
   reg [15:0] IDEX_IR; // For monitoring the pipeline
   wire [9:0] Control;
-  reg IDEX_RegDst, IDEX_AluSrc, IDEX_MemtoReg, IDEX_RegWrite, IDEX_MemWrite, IDEX_Branch;
+  reg IDEX_RegDst, IDEX_AluSrc, IDEX_MemtoReg, IDEX_RegWrite, IDEX_MemWrite;
+  reg [1:0] IDEX_Branch;
   reg [2:0] IDEX_AluCtrl;
   wire [15:0] RD1, RD2, SignExtend, WD;
   reg [15:0] IDEX_RD1, IDEX_RD2, IDEX_SignExt, IDEXE_IR;
   reg [1:0]  IDEX_rt, IDEX_rd;
   reg_file rf (IFID_IR[11:10], IFID_IR[9:8], WR, WD, IDEX_RegWrite, RD1, RD2, clock);
-  //mainCtrl main (IR[15:12], {RegDst, AluSrc, MemtoReg, RegWrite, MemWrite, Branch, AluCtrl});
-  mainCtrl main (IR[15:12], Control); 
+  mainCtrl main (IFID_IR[15:12], Control); 
   assign SignExtend = {{8{IFID_IR[7]}},IFID_IR[7:0]}; 
   
 // EXE
-  wire [15:0] B,AluOut;
-  wire [2:0] AluCtrl;
+  wire [15:0] B, AluOut;
   wire [1:0] WR;
   ALU exec (IDEX_AluCtrl, IDEX_RD1, B, AluOut, Zero);
   // assign B
@@ -367,16 +365,14 @@ module CPU (clock, PC, IFID_IR, IDEX_IR, WD);
   // assign WR
   mux2bit2x1 muxWR (IDEX_rt, IDEX_rd, IDEX_RegDst, WR);
   // assign WD
-  assign WD = AluOut;
-  //mux16bit2x1 muxWD (AluOut, DMemory[AluOut>>1], IDEX_MemtoReg, WD);
-   
+  //assign WD = AluOut;
+  mux16bit2x1 muxWD (AluOut, AluOut, IDEX_MemtoReg, WD);
 
    initial begin
     PC = 0;
    end
 
 // Running the pipeline
-
    always @(negedge clock) begin 
 
 // Stage 1 - IF
@@ -398,74 +394,6 @@ module CPU (clock, PC, IFID_IR, IDEX_IR, WD);
   end
 endmodule
 
-/*
-  reg[15:0] PC, IMemory[0:1023], DMemory[0:1023];
-  wire [15:0] IR, NextPC, A, B, AluOut, RD2, SignExtend, PCplus2, Target;
-  wire [2:0] AluCtrl;
-  wire [1:0] WR, Branch;
-
-   Test Program 
-  initial begin 
-      // Simple program to load 2 from DMemory[0] into $1 and 4 from
-      // DMemory[1] into $2, then loops to decrement $2 by $1 until 
-      // $2 reaches 0. Finishes by storing 0 into DMemory[1].
-
-      IMemory[0]  = 16'b0101000100000000;  // lw $1, 0($0)    2   Load DMemory[0] into $1
-      IMemory[1]  = 16'b0101001000000010;  // lw $2, 2($0)    4   Load DMemory[1] into $2
-      IMemory[2]  = 16'b0111011011000000;  // slt $3, $1, $2  1   Set $3 on $1 < $2
-      IMemory[3]  = 16'b1000110000000100;  // beq $3, $0, 4   X   Branch to IMemory[8] if $3 == 0
-      IMemory[4]  = 16'b0110000100000010;  // sw $1, 2($0)    X   Store $1 into DMemory[1]
-      IMemory[5]  = 16'b0110001000000000;  // sw $2, 0($0)    X   Store $2 into DMemory[2]
-      IMemory[6]  = 16'b0000000000000000;  // add $0, $0, $0  0   No operation
-      IMemory[7]  = 16'b0101000100000000;  // lw $1, 0($0)    4   Load DMemory[0] into $1
-      IMemory[8]  = 16'b0101001000000010;  // lw $2, 2($0)    2   Load DMemory[1] into $2
-      IMemory[9]  = 16'b0000000000000000;  // add $0, $0, $0  0   No operation
-      IMemory[10] = 16'b0001011001000000;  // sub $1, $1, $2  2   $1 <- $1 - $2
-      IMemory[11] = 16'b1001000111111100;  // bne $1, $0, -4  X   Branch to IMemory[8] if $1 != 0
-      IMemory[12] = 16'b0110000100000010;  // sw  $1, 2($0)   0   Store $1 into DMemory[1]
-      IMemory[13] = 16'b1000010000000100;  // beq $1, $0, 4   X   Branch to IMemory[18] if $1 == 0
-      IMemory[14] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
-      IMemory[15] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
-      IMemory[16] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
-      IMemory[17] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
-      IMemory[18] = 16'b0101001000000010;  // lw $2, 2($0)    0   Load DMemory[1] into $2
-
-      // Data
-      DMemory [0] = 16'h2;
-      DMemory [1] = 16'h4;
-  end
-
-    initial PC = 0;
-
-    assign IR = IMemory[PC>>1];
-    assign SignExtend = {{8{IR[7]}},IR[7:0]};
-    reg_file rf (IR[11:10], IR[9:8], WR, WD, RegWrite, A, RD2, clock);
-    ALU fetch (3'b010, PC, 16'b10, PCplus2, Unused1);
-    ALU exec (AluCtrl, A, B, AluOut, Zero);
-    ALU branch (3'b010,SignExtend<<1,PCplus2,Target,Unused2);
-
-    mainCtrl main (IR[15:12], {RegDst, AluSrc, MemtoReg, RegWrite, MemWrite, Branch, AluCtrl});
-    
-    // assign WR
-    mux2bit2x1 muxWR (IR[9:8], IR[7:6], RegDst, WR);
-    
-    // assign WD
-    mux16bit2x1 muxWD (AluOut, DMemory[AluOut>>1], MemtoReg, WD);
-    
-    // assign B
-    mux16bit2x1 muxB (RD2, SignExtend, AluSrc, B);
-    
-    // assign NextPC
-    branchCtrl bctrl (Branch, Zero, BranchOut);
-    mux16bit2x1 muxBranch (PCplus2, Target, BranchOut, NextPC);
-
-    always @(negedge clock) begin
-        PC <= NextPC;
-        if (MemWrite) DMemory[AluOut>>1] <= RD2;
-    end
-endmodule
-*/
-
 /*** CPU testing source code ***/
 
 module test();
@@ -479,7 +407,7 @@ module test();
   
   initial begin
     $display ("time\tPC\tIFID_IR\t\t\tIDEX_IR\t\t\tWD");
-    $monitor ("%2d\t%3d\t%b\t%b\t%b", $time,PC,IFID_IR,IDEX_IR,WD);
+    $monitor ("%2d\t%3d\t%b\t%b\t%d", $time,PC,IFID_IR,IDEX_IR,WD);
     clock = 1;
     #29 $finish;
   end
@@ -487,5 +415,43 @@ endmodule
 
 /* Compiling and simulation
 
+with nops:
+C:\Users\User\git\forks\CS385-CPU\Source Files\Progress Report 3>vvp out
+time    PC      IFID_IR                 IDEX_IR                 WD
+ 0        0     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            X
+ 1        2     0100000100001111        xxxxxxxxxxxxxxxx            X
+ 3        4     0100001000000111        0100000100001111           15
+ 5        6     0000000000000000        0100001000000111            7
+ 7        8     0010011011000000        0000000000000000            0
+ 9       10     0000000000000000        0010011011000000            7
+11       12     0001011110000000        0000000000000000            0
+13       14     0000000000000000        0001011110000000            8
+15       16     0011101110000000        0000000000000000            0
+17       18     0000000000000000        0011101110000000           15
+19       20     0000101111000000        0000000000000000            0
+21       22     0000000000000000        0000101111000000           22
+23       24     0111111001000000        0000000000000000            0
+25       26     0111101101000000        0111111001000000            0
+27       28     xxxxxxxxxxxxxxxx        0111101101000000            1
+29       30     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            X
 
+without nops:
+C:\Users\User\git\forks\CS385-CPU\Source Files\Progress Report 3>vvp out
+time    PC      IFID_IR                 IDEX_IR                 WD
+ 0        0     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            x
+ 1        2     0100000100001111        xxxxxxxxxxxxxxxx            x
+ 3        4     0100001000000111        0100000100001111           15
+ 5        6     0010011011000000        0100001000000111            7
+ 7        8     0001011110000000        0010011011000000            X
+ 9       10     0011101110000000        0001011110000000            x
+11       12     0000101111000000        0011101110000000            X
+13       14     0111111001000000        0000101111000000            x
+15       16     0111101101000000        0111111001000000            X
+17       18     xxxxxxxxxxxxxxxx        0111101101000000            X
+19       20     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            X
+21       22     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            X
+23       24     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            X
+25       26     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            X
+27       28     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            X
+29       30     xxxxxxxxxxxxxxxx        xxxxxxxxxxxxxxxx            X
 */
