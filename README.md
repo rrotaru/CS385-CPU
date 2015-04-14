@@ -58,3 +58,19 @@ CPU designed in Verilog
 * Internals -
 
 **Report** - Robert Rotaru, Bryan Bigelow, Anthony Cerritelli
+
+## Progress Report 3
+
+### Tasks
+
+**3-Stage Pipelined Datapath**
+* Datapath for R-type and addi instructions - Tony
+
+**Tests**
+* Pipeline hazards - Tony
+
+**Diagrams**
+* 3-Stage pipeline - Bryan
+* Internals -
+
+** Report ** - Robert Rotaru, Bryan Bigelow, Anthony Cerritelli
