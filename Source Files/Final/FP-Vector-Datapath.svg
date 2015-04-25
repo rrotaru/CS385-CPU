@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1280"
+   height="744.09448"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path4299"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         id="path4296"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-5"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4296-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4296-15"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4296-14"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4296-16"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-7"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4296-6"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-9"
+       style="overflow:visible">
+      <path
+         id="path4299-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-3"
+       style="overflow:visible">
+      <path
+         id="path4299-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.61580177"
+     inkscape:cx="500.64115"
+     inkscape:cy="429.11939"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     width="1052.36px"
+     inkscape:window-width="1536"
+     inkscape:window-height="803"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-308.2677)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.49999988;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985"
+       width="41.284401"
+       height="89.908257"
+       x="-203.19226"
+       y="370.38541" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3755"
+       width="109.42567"
+       height="97.411087"
+       x="115.64659"
+       y="799.46533"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3757"
+       width="38.532108"
+       height="99.082565"
+       x="-285.16019"
+       y="363.83228"
+       ry="19.266054" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1"
+       d="m -107.17265,198.96398 0.65625,88.3125 35.531254,35.53125 -35.031254,35.03125 0.75,99.8125 71.562504,-60.125 0,-138.53125 -73.468754,-60.03125 z"
+       id="rect3759"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       d="m -218.21022,256.56184 -60.84375,60.84375 121.71875,0 -60.875,-60.84375 z"
+       id="rect3782"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3824"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       transform="translate(-35.398023,294.5018)" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.49999988;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-0"
+       width="27.585772"
+       height="69.360313"
+       x="34.337509"
+       y="799.46533"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-0-9"
+       width="34.435085"
+       height="584.42883"
+       x="527.83472"
+       y="392.29599"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-0-9-4"
+       width="34.435085"
+       height="584.42883"
+       x="831.42395"
+       y="392.29599"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-0-9-8"
+       width="34.435085"
+       height="584.42883"
+       x="1135.0095"
+       y="392.29599"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-0-9-82"
+       width="34.435085"
+       height="584.42883"
+       x="259.11124"
+       y="392.29599"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1"
+       d="m 129.01905,539.45679 0.65625,57.91504 35.53126,23.30128 -35.03126,22.97338 0.75,65.4567 71.56251,-39.42977 0,-90.84834 -73.46876,-39.36829 z"
+       id="rect3759-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3757-5"
+       width="38.532108"
+       height="99.082565"
+       x="136.89833"
+       y="386.38254"
+       ry="19.266054"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-mid:none;marker-end:none"
+       d="m -98.630133,660.58136 -115.068507,10e-6"
+       id="path3930"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-mid:none;marker-end:none"
+       d="m 257.53426,842.77314 -34.24659,10e-6"
+       id="path3930-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-mid:none;marker-end:none"
+       d="m 115.0685,815.37588 -54.79454,10e-6"
+       id="path3930-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       transform="matrix(0.05548556,0,0,0.05548556,85.579334,801.88181)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:none"
+       d="m -214.23594,696.49383 115.06849,0"
+       id="path3930-23"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 74.762259,814.91725 0,-246.11335 53.828821,0"
+       id="path5032"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-mid:none;marker-end:none"
+       d="m 128.70792,676.75659 -25.35379,0"
+       id="path3930-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-5"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       transform="matrix(0.05548556,0,0,0.05548556,234.38722,608.66112)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-mid:none;marker-end:none"
+       d="m 257.46123,621.59169 -55.29653,10e-6"
+       id="path3930-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 174.11011,126.54768 36.72635,0 0,-81.614119 -194.513637,0 0,486.964219 14.962588,0"
+       id="path5292"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 223.07858,314.26014 0,-107.45858 -140.104229,0 0,-115.62 53.049179,0"
+       id="path5488"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3755-8"
+       width="146.03673"
+       height="146.37955"
+       x="349.27704"
+       y="602.38721"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1.91565084;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3824-9"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.61312609,0,0,1,553.33296,205.59527)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1.91565084;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3824-9-2"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.61312609,0,0,1,542.83125,587.08189)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-5-7"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,330.88972,669.44178)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 294.375,374.71948 26.25,0 0,-40 26.875,0"
+       id="path6739"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 320.625,334.09448 0,-29.375 26.25,0"
+       id="path6741"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 320.59189,304.10327 0,-166.40693 77.09247,0"
+       id="path7131"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 320.59189,375.55484 0,142.90312 68.6311,0"
+       id="path7715"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 320.59189,518.45796 0,82.73339 204.95317,0"
+       id="path7911"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 320.59189,601.19135 0,56.40913 206.83347,0"
+       id="path7913"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 464.43517,107.61147 62.99019,0"
+       id="path8303"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 471.48631,449.72465 54.52882,0"
+       id="path8303-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 462.08479,489.21104 62.99019,0"
+       id="path8303-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 294.26763,235.47216 231.27743,0"
+       id="path8534"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 495.46019,327.60708 31.02502,0"
+       id="path8734"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 493.57988,396.23818 33.84548,0"
+       id="path8934"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 462.55486,827.54612 63.93035,0"
+       id="path9134"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1"
+       d="m 681.54189,620.62282 0.88299,54.38453 47.80763,21.88083 -47.13487,21.57292 1.00913,61.46644 96.28799,-37.02612 0,-85.31021 -98.85287,-36.96839 z"
+       id="rect3759-4-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1.91565084;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3824-9-1"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.61312609,0,0,1,849.33603,617.00849)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:3.08397508;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3824-9-13"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.42675976,0,0,0.55434138,704.25774,413.47487)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3757-5-8"
+       width="38.532108"
+       height="99.082565"
+       x="602.17456"
+       y="889.0625"
+       ry="19.266054"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3757-5-7"
+       width="38.532108"
+       height="99.082565"
+       x="602.1745"
+       y="686.92969"
+       ry="19.266054"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1"
+       d="m 674.49073,431.18218 0.88299,49.24924 47.80763,19.81472 -47.13487,19.53589 1.00913,55.66244 96.28799,-33.52991 0,-77.25475 -98.85287,-33.47763 z"
+       id="rect3759-4-3-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 562.21099,237.35247 13.16213,0 0,-97.77583 95.89552,0"
+       id="path9427"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 646.82469,239.23277 28.20456,0"
+       id="path9627"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 773.74523,191.28501 56.40913,0"
+       id="path9827"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 562.21099,327.60708 119.39933,0"
+       id="path10027"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 562.21099,397.17834 37.60609,0"
+       id="path10227"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 562.21099,599.31105 40.42654,0"
+       id="path10427"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 562.21099,657.60048 38.54624,0"
+       id="path10627"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 641.18377,633.15653 187.09028,0"
+       id="path10827"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 562.21099,520.33827 109.05765,0 0,31.96517 22.56365,0"
+       id="path11027"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-2"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,591.59824,815.14392)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 581.01403,520.33827 0,-272.64413 15.98259,0"
+       id="path11245"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 581.01403,764.67562 18.80305,0"
+       id="path11445"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 641.18377,430.08366 40.42655,0"
+       id="path11645"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 779.38614,387.77681 47.94776,0"
+       id="path11845"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-opacity:1"
+       d="m -374.13008,603.151 0,89.90625 60,0 1.1875,0 1.71875,0 0,-0.0312 c 24.10882,-0.88989 43.25,-20.60351 43.25,-44.9375 0,-24.33399 -19.14118,-44.01636 -43.25,-44.90625 l 0,-0.0312 -1.71875,0 -1.1875,0 -60,0 z"
+       id="rect2985-7"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.08;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3);stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 731.43838,493.07386 0,-40.42655"
+       id="path12102"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 865.88014,191.28501 31.02502,0 0,-151.364496 -662.80727,0 0,148.544046 -123.15994,0 0,-34.78563 23.50381,0"
+       id="path13094"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3755-8-1"
+       width="146.03673"
+       height="146.37955"
+       x="927.30353"
+       y="667.98206"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-2-8"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,591.63583,751.38657)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-2-6"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,579.81378,692.14573)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-2-5"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,331.25532,895.82558)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-2-0"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,331.25531,813.35634)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-2-2"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,331.25532,629.23896)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-2-86"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,331.25531,599.70347)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 567.74194,396.78265 0,81.72043 262.36559,0"
+       id="path13383"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 865.5914,387.10524 60.21505,0"
+       id="path13583"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 864.51613,477.42782 62.36559,0"
+       id="path13783"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path3824-7-2-02"
+       sodipodi:cx="-190.75601"
+       sodipodi:cy="242.6225"
+       sodipodi:rx="58.013428"
+       sodipodi:ry="58.013428"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 1 1 -116.02686,0 58.013428,58.013428 0 1 1 116.02686,0 z"
+       transform="matrix(0.05548556,0,0,0.05548556,894.2519,682.14361)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 866.40256,633.7886 267.74244,0"
+       id="path14001"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 882.44705,387.10454 0,174.48385 250.69515,0"
+       id="path14201"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3757-5-7-4"
+       width="38.532108"
+       height="99.082565"
+       x="1203.1237"
+       y="676.91718"
+       ry="19.266054"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 1072.9754,400.14069 59.1641,0"
+       id="path14419"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 1169.2423,562.59117 17.0473,0 0,-109.3031 0,-13.03615 14.0389,0"
+       id="path14619"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 1168.2396,400.14069 33.0917,0"
+       id="path14819"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 1170.2451,633.7886 18.0501,0 0,59.16406 -859.38312,0 0,-301.837 18.05005,0"
+       id="path15019"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
+       d="m 1241.4426,415.1824 17.0472,0 0,292.81198 -922.55825,0 0,-286.79529 12.03337,0"
+       id="path15219"
+       inkscape:connector-curvature="0"
+       transform="translate(0,308.2677)"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>
