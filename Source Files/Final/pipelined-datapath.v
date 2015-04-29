@@ -358,87 +358,72 @@ module CPU (clock,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
 
     /* Test Program */
     initial begin 
-        // Simple program to load 2 from DMemory[0] into $1 and 4 from
-        // DMemory[1] into $2, then loops to decrement $2 by $1 until 
+        // Simple program to load 1 from DMemory[0] into $1 and 3 from
+        // DMemory[1] into $2, add $1 to $2, add 1 to $1, then swaps
+        // the values in $1 and $2 and loops to decrement $2 by $1 until 
         // $2 reaches 0. Finishes by storing 0 into DMemory[1].
 
-        IMemory[0]  = 16'b0101000100000000;  // lw $1, 0($0)    2   Load DMemory[0] into $1
-        IMemory[1]  = 16'b0000000000000000;  // nop   
-        IMemory[2]  = 16'b0000000000000000;  // nop   
-        IMemory[3]  = 16'b0000000000000000;  // nop   
-        IMemory[4]  = 16'b0101001000000010;  // lw $2, 2($0)    4   Load DMemory[1] into $2
-        IMemory[5]  = 16'b0000000000000000;  // nop   
-        IMemory[6]  = 16'b0000000000000000;  // nop   
-        IMemory[7]  = 16'b0000000000000000;  // nop   
-        IMemory[8]  = 16'b0111011011000000;  // slt $3, $1, $2  1   Set $3 on $1 < $2
-        IMemory[9]  = 16'b0000000000000000;  // nop   
-        IMemory[10] = 16'b0000000000000000;  // nop   
+        IMemory[0] = 16'b0101000100000000;  // lw $1, 0($0)       1   Load DMemory[0] into $1  
+        IMemory[1] = 16'b0101001000000010;  // lw $2, 2($0)       3   Load DMemory[1] into $2 
+        IMemory[2] = 16'b0000000000000000;  // nop   
+        IMemory[3] = 16'b0000000000000000;  // nop   
+        IMemory[4] = 16'b0000000000000000;  // nop
+        IMemory[5] = 16'b0000100110000000;  // add  $2, $2, $1    4
+        IMemory[6] = 16'b0100010100000001;  // addi $1, $1, 1     2
+        IMemory[7] = 16'b0000000000000000;  // nop   
+        IMemory[8] = 16'b0000000000000000;  // nop   
+        IMemory[9] = 16'b0000000000000000;  // nop
+        IMemory[10] = 16'b0111011011000000;  // slt $3, $1, $2    1   Set $3 on $1 < $2
         IMemory[11] = 16'b0000000000000000;  // nop   
-        IMemory[12] = 16'b1000110000000100;  // beq $3, $0, 4   X   Branch to IMemory[8] if $3 == 0
-        IMemory[13] = 16'b0000000000000000;  // nop   
-        IMemory[14] = 16'b0000000000000000;  // nop   
+        IMemory[12] = 16'b0000000000000000;  // nop   
+        IMemory[13] = 16'b0000000000000000;  // nop 
+        IMemory[14] = 16'b1000110000000100;  // beq $3, $0, 4     X   Branch to IMemory[8] if $3 == 0
         IMemory[15] = 16'b0000000000000000;  // nop   
-        IMemory[16] = 16'b0110000100000010;  // sw $1, 2($0)    X   Store $1 into DMemory[1]
+        IMemory[16] = 16'b0000000000000000;  // nop   
         IMemory[17] = 16'b0000000000000000;  // nop   
-        IMemory[18] = 16'b0000000000000000;  // nop   
-        IMemory[19] = 16'b0000000000000000;  // nop   
-        IMemory[20] = 16'b0110001000000000;  // sw $2, 0($0)    X   Store $2 into DMemory[0]
+        IMemory[18] = 16'b0110000100000010;  // sw $1, 2($0)      X   Store $1 into DMemory[1] 
+        IMemory[19] = 16'b0110001000000000;  // sw $2, 0($0)      X   Store $2 into DMemory[0]     
+        IMemory[20] = 16'b0000000000000000;  // nop   
         IMemory[21] = 16'b0000000000000000;  // nop   
-        IMemory[22] = 16'b0000000000000000;  // nop   
-        IMemory[23] = 16'b0000000000000000;  // nop   
-        IMemory[24] = 16'b0000000000000000;  // add $0, $0, $0	0   No operation
+        IMemory[22] = 16'b0101000100000000;  // lw $1, 0($0)      4   Load DMemory[0] into $1
+        IMemory[23] = 16'b0101001000000010;  // lw $2, 2($0)      2   Load DMemory[1] into $2
+        IMemory[24] = 16'b0000000000000000;  // nop   
         IMemory[25] = 16'b0000000000000000;  // nop   
-        IMemory[26] = 16'b0000000000000000;  // nop   
-        IMemory[27] = 16'b0000000000000000;  // nop   
-        IMemory[28] = 16'b0101000100000000;  // lw $1, 0($0)    4   Load DMemory[0] into $1
+        IMemory[26] = 16'b0000000000000000;  // nop    
+        IMemory[27] = 16'b0001011001000000;  // sub $1, $1, $2    2   $1 <- $1 - $2
+        IMemory[28] = 16'b0000000000000000;  // nop   
         IMemory[29] = 16'b0000000000000000;  // nop   
         IMemory[30] = 16'b0000000000000000;  // nop   
-        IMemory[31] = 16'b0000000000000000;  // nop   
-        IMemory[32] = 16'b0101001000000010;  // lw $2, 2($0)    2   Load DMemory[1] into $2
+        IMemory[31] = 16'b1001000111111011;  // bne $1, $0, -5    X   Branch to IMemory[27] if $1 != 0
+        IMemory[32] = 16'b0000000000000000;  // nop   
         IMemory[33] = 16'b0000000000000000;  // nop   
         IMemory[34] = 16'b0000000000000000;  // nop   
-        IMemory[35] = 16'b0000000000000000;  // nop   
-        IMemory[36] = 16'b0000000000000000;  // add $0, $0, $0	0   No operation
+        IMemory[35] = 16'b0110000100000010;  // sw  $1, 2($0)     0   Store $1 into DMemory[1] 
+        IMemory[36] = 16'b1000010000010011;  // beq $1, $0, 4     X   Branch to IMemory[56] if $1 == 0
         IMemory[37] = 16'b0000000000000000;  // nop   
         IMemory[38] = 16'b0000000000000000;  // nop   
         IMemory[39] = 16'b0000000000000000;  // nop   
-        IMemory[40] = 16'b0001011001000000;  // sub $1, $1, $2  2   $1 <- $1 - $2
+        IMemory[40] = 16'b0100000100000001;  // addi $t1, $0, 1   X   Branched over
         IMemory[41] = 16'b0000000000000000;  // nop   
         IMemory[42] = 16'b0000000000000000;  // nop   
         IMemory[43] = 16'b0000000000000000;  // nop   
-        IMemory[44] = 16'b1001000111111011;  // bne $1, $0, -5  X   Branch to IMemory[40] if $1 != 0
+        IMemory[44] = 16'b0100000100000001;  // addi $t1, $0, 1   X   Branched over
         IMemory[45] = 16'b0000000000000000;  // nop   
         IMemory[46] = 16'b0000000000000000;  // nop   
         IMemory[47] = 16'b0000000000000000;  // nop   
-        IMemory[48] = 16'b0110000100000010;  // sw  $1, 2($0)   0   Store $1 into DMemory[1]
+        IMemory[48] = 16'b0100000100000001;  // addi $t1, $0, 1   X   Branched over
         IMemory[49] = 16'b0000000000000000;  // nop   
         IMemory[50] = 16'b0000000000000000;  // nop   
         IMemory[51] = 16'b0000000000000000;  // nop   
-        IMemory[52] = 16'b1000010000010000;  // beq $1, $0, 4   X   Branch to IMemory[18] if $1 == 0
+        IMemory[52] = 16'b0100000100000001;  // addi $t1, $0, 1   X   Branched over
         IMemory[53] = 16'b0000000000000000;  // nop   
         IMemory[54] = 16'b0000000000000000;  // nop   
         IMemory[55] = 16'b0000000000000000;  // nop   
-        IMemory[56] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
-        IMemory[57] = 16'b0000000000000000;  // nop   
-        IMemory[58] = 16'b0000000000000000;  // nop   
-        IMemory[59] = 16'b0000000000000000;  // nop   
-        IMemory[60] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
-        IMemory[61] = 16'b0000000000000000;  // nop   
-        IMemory[62] = 16'b0000000000000000;  // nop   
-        IMemory[63] = 16'b0000000000000000;  // nop   
-        IMemory[64] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
-        IMemory[65] = 16'b0000000000000000;  // nop   
-        IMemory[66] = 16'b0000000000000000;  // nop   
-        IMemory[67] = 16'b0000000000000000;  // nop   
-        IMemory[68] = 16'b0100000100000001;  // addi $t1, $0, 1 X   Branched over
-        IMemory[69] = 16'b0000000000000000;  // nop   
-        IMemory[70] = 16'b0000000000000000;  // nop   
-        IMemory[71] = 16'b0000000000000000;  // nop   
-        IMemory[72] = 16'b0101001000000010;  // lw $2, 2($0)    0   Load DMemory[1] into $2
+        IMemory[56] = 16'b0101001000000010;  // lw $2, 2($0)      0   Load DMemory[1] into $2
 
         // Data
-        DMemory [0] = 16'h2;
-        DMemory [1] = 16'h4;
+        DMemory [0] = 16'h1;
+        DMemory [1] = 16'h3;
     end
 
 // Pipeline stages
@@ -564,8 +549,63 @@ initial begin
     $display ("time\tPC\tIFID_IR\tIDEX_IR\tEXMEM_IR\tMEMWB_IR\tWD");
     $monitor ("%2d\t%3d\t%h\t%h\t%h\t\t%h\t\t%d", $time,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
     clock = 1;
-    #141 $finish;
+    #103 $finish;
   end
 endmodule
 
 /* Compiling and simulation
+C:\Users\User\git\forks\CS385-CPU\Source Files\Final>vvp out
+time    PC      IFID_IR IDEX_IR EXMEM_IR        MEMWB_IR        WD
+ 0        0     0000    xxxx    xxxx            xxxx                x
+ 1        2     5100    0000    xxxx            xxxx                x
+ 3        4     5202    5100    0000            xxxx                x
+ 5        6     0000    5202    5100            0000                0
+ 7        8     0000    0000    5202            5100                1
+ 9       10     0000    0000    0000            5202                3
+11       12     0980    0000    0000            0000                0
+13       14     4501    0980    0000            0000                0
+15       16     0000    4501    0980            0000                0
+17       18     0000    0000    4501            0980                4
+19       20     0000    0000    0000            4501                2
+21       22     76c0    0000    0000            0000                0
+23       24     0000    76c0    0000            0000                0
+25       26     0000    0000    76c0            0000                0
+27       28     0000    0000    0000            76c0                1
+29       30     8c04    0000    0000            0000                0
+31       32     0000    8c04    0000            0000                0
+33       34     0000    0000    8c04            0000                0
+35       36     0000    0000    0000            8c04                1
+37       38     6102    0000    0000            0000                0
+39       40     6200    6102    0000            0000                0
+41       42     0000    6200    6102            0000                0
+43       44     0000    0000    6200            6102                2
+45       46     5100    0000    0000            6200                0
+47       48     5202    5100    0000            0000                0
+49       50     0000    5202    5100            0000                0
+51       52     0000    0000    5202            5100                4
+53       54     0000    0000    0000            5202                2
+55       56     1640    0000    0000            0000                0
+57       58     0000    1640    0000            0000                0
+59       60     0000    0000    1640            0000                0
+61       62     0000    0000    0000            1640                2
+63       64     91fb    0000    0000            0000                0
+65       66     0000    91fb    0000            0000                0
+67       68     0000    0000    91fb            0000                0
+69       54     0000    0000    0000            91fb            65534
+71       56     1640    0000    0000            0000                0
+73       58     0000    1640    0000            0000                0
+75       60     0000    0000    1640            0000                0
+77       62     0000    0000    0000            1640                0
+79       64     91fb    0000    0000            0000                0
+81       66     0000    91fb    0000            0000                0
+83       68     0000    0000    91fb            0000                0
+85       70     0000    0000    0000            91fb                0
+87       72     6102    0000    0000            0000                0
+89       74     8413    6102    0000            0000                0
+91       76     0000    8413    6102            0000                0
+93       78     0000    0000    8413            6102                2
+95      112     0000    0000    0000            8413                0
+97      114     5202    0000    0000            0000                0
+99      116     xxxx    5202    0000            0000                0
+101     118     xxxx    xxxx    5202            0000                0
+103     120     xxxx    xxxx    xxxx            5202                0
