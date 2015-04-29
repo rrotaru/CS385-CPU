@@ -382,7 +382,7 @@ module CPU (clock,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
         IMemory[17] = 16'b0000000000000000;  // nop   
         IMemory[18] = 16'b0000000000000000;  // nop   
         IMemory[19] = 16'b0000000000000000;  // nop   
-        IMemory[20] = 16'b0110001000000000;  // sw $2, 0($0)    X   Store $2 into DMemory[2]
+        IMemory[20] = 16'b0110001000000000;  // sw $2, 0($0)    X   Store $2 into DMemory[0]
         IMemory[21] = 16'b0000000000000000;  // nop   
         IMemory[22] = 16'b0000000000000000;  // nop   
         IMemory[23] = 16'b0000000000000000;  // nop   
@@ -406,7 +406,7 @@ module CPU (clock,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
         IMemory[41] = 16'b0000000000000000;  // nop   
         IMemory[42] = 16'b0000000000000000;  // nop   
         IMemory[43] = 16'b0000000000000000;  // nop   
-        IMemory[44] = 16'b1001000111111100;  // bne $1, $0, -4  X   Branch to IMemory[8] if $1 != 0
+        IMemory[44] = 16'b1001000111111011;  // bne $1, $0, -5  X   Branch to IMemory[40] if $1 != 0
         IMemory[45] = 16'b0000000000000000;  // nop   
         IMemory[46] = 16'b0000000000000000;  // nop   
         IMemory[47] = 16'b0000000000000000;  // nop   
@@ -414,7 +414,7 @@ module CPU (clock,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
         IMemory[49] = 16'b0000000000000000;  // nop   
         IMemory[50] = 16'b0000000000000000;  // nop   
         IMemory[51] = 16'b0000000000000000;  // nop   
-        IMemory[52] = 16'b1000010000000100;  // beq $1, $0, 4   X   Branch to IMemory[18] if $1 == 0
+        IMemory[52] = 16'b1000010000010000;  // beq $1, $0, 4   X   Branch to IMemory[18] if $1 == 0
         IMemory[53] = 16'b0000000000000000;  // nop   
         IMemory[54] = 16'b0000000000000000;  // nop   
         IMemory[55] = 16'b0000000000000000;  // nop   
@@ -564,7 +564,7 @@ initial begin
     $display ("time\tPC\tIFID_IR\tIDEX_IR\tEXMEM_IR\tMEMWB_IR\tWD");
     $monitor ("%2d\t%3d\t%h\t%h\t%h\t\t%h\t\t%d", $time,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
     clock = 1;
-    #520 $finish;
+    #141 $finish;
   end
 endmodule
 
