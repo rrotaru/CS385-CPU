@@ -13,7 +13,7 @@
    height="744.09448"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="FP-Vector-Datapath.svg">
   <defs
      id="defs4">
@@ -143,6 +143,62 @@
          transform="matrix(-0.8,0,0,-0.8,-10,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-50"
+       style="overflow:visible">
+      <path
+         id="path4296-166"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-3"
+       style="overflow:visible">
+      <path
+         id="path4296-4"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-26"
+       style="overflow:visible">
+      <path
+         id="path4296-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-0"
+       style="overflow:visible">
+      <path
+         id="path4296-3"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -155,11 +211,11 @@
      inkscape:cx="703.33481"
      inkscape:cy="375.81937"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      showgrid="false"
      width="1052.36px"
-     inkscape:window-width="1536"
-     inkscape:window-height="803"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -223,7 +279,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="translate(-35.398023,294.5018)" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:1.49999988;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -284,12 +340,12 @@
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3757-5"
        width="38.532108"
        height="99.082565"
-       x="136.89833"
-       y="386.38254"
+       x="77.355362"
+       y="381.42062"
        ry="19.266054"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -323,7 +379,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,85.579334,801.88181)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -357,7 +413,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,234.38722,608.66112)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -372,22 +428,24 @@
        inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 174.11011,126.54768 36.72635,0 0,-81.614119 -194.513637,0 0,486.964219 14.962588,0"
+       d="m 195.94253,126.54768 25.81014,0 -0.99238,-82.606502 -204.437467,0.992383 0,486.964219 14.962588,0"
        id="path5292"
        inkscape:connector-curvature="0"
        transform="translate(0,308.2677)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       sodipodi:nodetypes="cccccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 223.07858,314.26014 0,-107.45858 -140.104229,0 0,-115.62 53.049179,0"
+       d="m 223.07858,314.26014 0,-107.45858 -184.761458,0.99238 0.992383,-117.604763 36.178673,0"
        id="path5488"
        inkscape:connector-curvature="0"
        transform="translate(0,308.2677)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       sodipodi:nodetypes="ccccc" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3755-8"
@@ -398,19 +456,16 @@
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
-    <path
-       sodipodi:type="arc"
-       style="fill:none;stroke:#000000;stroke-width:1.91565084;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:1.39196503;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path3824-9"
-       sodipodi:cx="-190.75601"
-       sodipodi:cy="242.6225"
-       sodipodi:rx="58.013428"
-       sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
-       transform="matrix(0.61312609,0,0,1,553.33296,205.59527)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       cx="438.85641"
+       cy="452.68347"
+       rx="33.142723"
+       ry="53.615799" />
     <path
        sodipodi:type="arc"
        style="fill:none;stroke:#000000;stroke-width:1.91565084;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -419,7 +474,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.61312609,0,0,1,542.83125,587.08189)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -432,7 +487,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,330.88972,669.44178)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -457,13 +512,14 @@
        inkscape:export-ydpi="90" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 320.59189,304.10327 0,-166.40693 77.09247,0"
+       d="m 320.59189,304.10327 0,-166.40693 83.04677,0"
        id="path7131"
        inkscape:connector-curvature="0"
        transform="translate(0,308.2677)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       sodipodi:nodetypes="ccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
        d="m 320.59189,375.55484 0,142.90312 68.6311,0"
@@ -567,7 +623,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.42675976,0,0,0.55434138,704.25774,413.47487)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -682,7 +738,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,591.59824,815.14392)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -729,13 +785,14 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
-       d="m 865.88014,191.28501 31.02502,0 0,-151.364496 -662.80727,0 0,148.544046 -123.15994,0 0,-34.78563 23.50381,0"
+       d="m 865.88014,191.28501 31.02502,0 0,-151.364496 -662.80727,0 0,148.544046 -181.710529,0.99239 0.992383,-35.77802 22.511427,0"
        id="path13094"
        inkscape:connector-curvature="0"
        transform="translate(0,308.2677)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       sodipodi:nodetypes="cccccccc" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3755-8-1"
@@ -754,7 +811,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,591.63583,751.38657)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -767,7 +824,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,579.81378,692.14573)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -780,7 +837,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,331.25532,895.82558)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -793,7 +850,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,331.25531,813.35634)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -806,7 +863,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,331.25532,629.23896)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -819,7 +876,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,331.25531,599.70347)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -859,7 +916,7 @@
        sodipodi:cy="242.6225"
        sodipodi:rx="58.013428"
        sodipodi:ry="58.013428"
-       d="m -132.74258,242.6225 c 0,32.03993 -25.9735,58.01343 -58.01343,58.01343 -32.03993,0 -58.01343,-25.9735 -58.01343,-58.01343 0,-32.03993 25.9735,-58.01343 58.01343,-58.01343 32.03993,0 58.01343,25.9735 58.01343,58.01343 z"
+       d="m -132.74258,242.6225 a 58.013428,58.013428 0 0 1 -58.01343,58.01343 58.013428,58.013428 0 0 1 -58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,-58.01343 58.013428,58.013428 0 0 1 58.01343,58.01343 z"
        transform="matrix(0.05548556,0,0,0.05548556,894.2519,682.14361)"
        inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
        inkscape:export-xdpi="90"
@@ -944,6 +1001,80 @@
        id="path4412"
        inkscape:connector-curvature="0"
        transform="translate(0,308.2677)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1"
+       id="path3523"
+       cx="320.53967"
+       cy="447.50482"
+       rx="3.9695315"
+       ry="3.47334" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.76552898px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 321.53205,395.42868 -0.99238,51.556"
+       id="path3930-23-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.64251786px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart-50);marker-mid:none;marker-end:none"
+       d="m 153.43626,459.90961 -37.53812,1e-5"
+       id="path3930-29"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.26977313px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 128.04135,334.86938 788.89646,-10e-6"
+       id="path3930-23-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.74265569px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 130.00215,332.90856 0,67.43411"
+       id="path3930-23-68"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.55609244px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart-3);marker-mid:none;marker-end:none"
+       d="m 155.57603,401.35901 -26.76146,10e-6"
+       id="path3930-4"
+       inkscape:connector-curvature="0" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1"
+       id="path3649"
+       cx="130.49835"
+       cy="515.97925"
+       rx="4.465723"
+       ry="3.47334" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1"
+       id="path3651"
+       cx="130.49835"
+       cy="400.36664"
+       rx="3.47334"
+       ry="3.9695315" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 130.00215,515.45909 0,-115.0685"
+       id="path3930-23-1"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.22124934px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart-26);marker-mid:none;marker-end:none"
+       d="m 524.80397,393.41996 -205.36115,10e-6"
+       id="path3930-13"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.3302387px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart-0);marker-mid:none;marker-end:none"
+       d="m 830.40172,395.40472 -269.7802,10e-6"
+       id="path3930-27"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.662889px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 865.38182,394.41234 50.5636,0"
+       id="path3930-23-7"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.72502738px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 915.96939,334.39714 0,60.48743"
+       id="path3930-23-7-8"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -952,22 +1083,22 @@
      style="display:inline">
     <text
        xml:space="preserve"
-       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans Bold"
-       x="149.88083"
-       y="110.82315"
+       style="font-style:normal;font-weight:bold;font-size:18px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="90.33786"
+       y="105.86124"
        id="text3092"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3094"
-         x="149.88083"
-         y="110.82315">M</tspan><tspan
+         x="90.33786"
+         y="105.86124">M</tspan><tspan
          sodipodi:role="line"
-         x="149.88083"
-         y="133.32315"
+         x="90.33786"
+         y="128.36124"
          id="tspan3096">U</tspan><tspan
          sodipodi:role="line"
-         x="149.88083"
-         y="155.82315"
+         x="90.33786"
+         y="150.86124"
          id="tspan3098">X</tspan></text>
     <text
        xml:space="preserve"
@@ -1400,5 +1531,35 @@
          id="tspan4459"
          x="957.64941"
          y="434.47104">DMemory</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3757-5-2"
+       width="38.532108"
+       height="99.082565"
+       x="155.39333"
+       y="75.306297"
+       ry="19.266054"
+       inkscape:export-filename="C:\Users\Bryan\CS385\CS385-CPU\Source Files\FP-Empty-Datapath.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:bold;font-size:18px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+       x="168.37582"
+       y="108.0146"
+       id="text3092-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3094-3"
+         x="168.37582"
+         y="108.0146">M</tspan><tspan
+         sodipodi:role="line"
+         x="168.37582"
+         y="130.5146"
+         id="tspan3096-8">U</tspan><tspan
+         sodipodi:role="line"
+         x="168.37582"
+         y="153.0146"
+         id="tspan3098-9">X</tspan></text>
   </g>
 </svg>
