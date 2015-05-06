@@ -15,62 +15,62 @@
 /*** Multiplexers ***/
 
 module mux2x1(A,B,select,OUT);
-	input A,B,select;
-	output OUT;
-	wire x,y;
-	and	g1(x,A,~select),
-		g2(y,B,select);
-	or	g3(OUT,x,y);
+    input A,B,select;
+    output OUT;
+    wire x,y;
+    and g1(x,A,~select),
+        g2(y,B,select);
+    or  g3(OUT,x,y);
 endmodule
 
 module mux4x1(i0,i1,i2,i3,select,O); 
-	input i0,i1,i2,i3;
-	input [1:0] select;
-	output O;
-	wire w,x,y,z;
-	and g1(w,i0,~select[1],~select[0]),
-		g2(x,i1,~select[1],select[0]),
-		g3(y,i2,select[1],~select[0]),
-		g4(z,i3,select[1],select[0]);
-	or	g5(O,w,x,y,z);
+    input i0,i1,i2,i3;
+    input [1:0] select;
+    output O;
+    wire w,x,y,z;
+    and g1(w,i0,~select[1],~select[0]),
+        g2(x,i1,~select[1],select[0]),
+        g3(y,i2,select[1],~select[0]),
+        g4(z,i3,select[1],select[0]);
+    or  g5(O,w,x,y,z);
 endmodule
 
 module mux16Bit4x1(i0, i1, i2, i3, select, O);
-	input [15:0] i0, i1, i2, i3;
-	input [1:0] select;
-	output [15:0] O;
-	
-	mux4x1 	mux0(i0[0], i1[0], i2[0], i3[0], select, O[0]),
-			mux1(i0[1], i1[1], i2[1], i3[1], select, O[1]),
-			mux2(i0[2], i1[2], i2[2], i3[2], select, O[2]),
-			mux3(i0[3], i1[3], i2[3], i3[3], select, O[3]),
-			mux4(i0[4], i1[4], i2[4], i3[4], select, O[4]),
-			mux5(i0[5], i1[5], i2[5], i3[5], select, O[5]),
-			mux6(i0[6], i1[6], i2[6], i3[6], select, O[6]),
-			mux7(i0[7], i1[7], i2[7], i3[7], select, O[7]),
-			mux8(i0[8], i1[8], i2[8], i3[8], select, O[8]),
-			mux9(i0[9], i1[9], i2[9], i3[9], select, O[9]),
-			mux10(i0[10], i1[10], i2[10], i3[10], select, O[10]),
-			mux11(i0[11], i1[11], i2[11], i3[11], select, O[11]),
-			mux12(i0[12], i1[12], i2[12], i3[12], select, O[12]),
-			mux13(i0[13], i1[13], i2[13], i3[13], select, O[13]),
-			mux14(i0[14], i1[14], i2[14], i3[14], select, O[14]),
-			mux15(i0[15], i1[15], i2[15], i3[15], select, O[15]);
+    input [15:0] i0, i1, i2, i3;
+    input [1:0] select;
+    output [15:0] O;
+    
+    mux4x1  mux0(i0[0], i1[0], i2[0], i3[0], select, O[0]),
+            mux1(i0[1], i1[1], i2[1], i3[1], select, O[1]),
+            mux2(i0[2], i1[2], i2[2], i3[2], select, O[2]),
+            mux3(i0[3], i1[3], i2[3], i3[3], select, O[3]),
+            mux4(i0[4], i1[4], i2[4], i3[4], select, O[4]),
+            mux5(i0[5], i1[5], i2[5], i3[5], select, O[5]),
+            mux6(i0[6], i1[6], i2[6], i3[6], select, O[6]),
+            mux7(i0[7], i1[7], i2[7], i3[7], select, O[7]),
+            mux8(i0[8], i1[8], i2[8], i3[8], select, O[8]),
+            mux9(i0[9], i1[9], i2[9], i3[9], select, O[9]),
+            mux10(i0[10], i1[10], i2[10], i3[10], select, O[10]),
+            mux11(i0[11], i1[11], i2[11], i3[11], select, O[11]),
+            mux12(i0[12], i1[12], i2[12], i3[12], select, O[12]),
+            mux13(i0[13], i1[13], i2[13], i3[13], select, O[13]),
+            mux14(i0[14], i1[14], i2[14], i3[14], select, O[14]),
+            mux15(i0[15], i1[15], i2[15], i3[15], select, O[15]);
 endmodule
 
 module mux2bit2x1(A,B,select,OUT);
-	input [1:0] A,B;
+    input [1:0] A,B;
     input select;
-	output [1:0] OUT;
+    output [1:0] OUT;
 
     mux2x1 mux1(A[0], B[0], select, OUT[0]),
            mux2(A[1], B[1], select, OUT[1]);
 endmodule
 
 module mux16bit2x1(A, B, select, OUT);
-	input [15:0] A,B;
+    input [15:0] A,B;
     input select;
-	output [15:0] OUT;
+    output [15:0] OUT;
 
     mux2x1 mux1(A[0], B[0], select, OUT[0]),
            mux2(A[1], B[1], select, OUT[1]),
@@ -93,26 +93,26 @@ endmodule
 /*** 16-bit D flip flop ***/
 
 module D_16_Flip_flop(D,CLK,Q);
-	input [15:0] D;
-	input CLK;
-	output [15:0] Q;
-	
-	D_flip_flop f0(D[0], CLK, Q[0]),
-				f1(D[1], CLK, Q[1]),
-				f2(D[2], CLK, Q[2]),
-				f3(D[3], CLK, Q[3]),
-				f4(D[4], CLK, Q[4]),
-				f5(D[5], CLK, Q[5]),
-				f6(D[6], CLK, Q[6]),
-				f7(D[7], CLK, Q[7]),
-				f8(D[8], CLK, Q[8]),
-				f9(D[9], CLK, Q[9]),
-				f10(D[10], CLK, Q[10]),
-				f11(D[11], CLK, Q[11]),
-				f12(D[12], CLK, Q[12]),
-				f13(D[13], CLK, Q[13]),
-				f14(D[14], CLK, Q[14]),
-				f15(D[15], CLK, Q[15]);	
+    input [15:0] D;
+    input CLK;
+    output [15:0] Q;
+    
+    D_flip_flop f0(D[0], CLK, Q[0]),
+                f1(D[1], CLK, Q[1]),
+                f2(D[2], CLK, Q[2]),
+                f3(D[3], CLK, Q[3]),
+                f4(D[4], CLK, Q[4]),
+                f5(D[5], CLK, Q[5]),
+                f6(D[6], CLK, Q[6]),
+                f7(D[7], CLK, Q[7]),
+                f8(D[8], CLK, Q[8]),
+                f9(D[9], CLK, Q[9]),
+                f10(D[10], CLK, Q[10]),
+                f11(D[11], CLK, Q[11]),
+                f12(D[12], CLK, Q[12]),
+                f13(D[13], CLK, Q[13]),
+                f14(D[14], CLK, Q[14]),
+                f15(D[15], CLK, Q[15]); 
 endmodule
 
 module D_flip_flop(D,CLK,Q);
@@ -205,7 +205,7 @@ module ALU1 (a,b,binvert,op,less,carryin,carryout,result);
    input [1:0] op;
    output carryout,result;
    wire sum, a_and_b, a_or_b, b_inv;
-	
+    
    not not1(b_inv, b);
    mux2x1 mux1(b,b_inv,binvert,b1);
    and and1(a_and_b, a, b);
@@ -221,7 +221,7 @@ module ALUmsb (a,b,binvert,op,less,carryin,carryout,result,sum);
    input [1:0] op;
    output carryout,result,sum;
    wire sum, a_and_b, a_or_b, b_inv;
-	
+    
    not not1(b_inv, b);
    mux2x1 mux1(b,b_inv,binvert,b1);
    and and1(a_and_b, a, b);
@@ -238,7 +238,7 @@ module ALU (op,a,b,result,zero);
    output [15:0] result;
    output zero;
    wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16;
-	
+    
    ALU1   alu0  (a[0], b[0], op[2], op[1:0],set,op[2],c1, result[0]);
    ALU1   alu1  (a[1], b[1], op[2], op[1:0],0,  c1,   c2, result[1]);
    ALU1   alu2  (a[2], b[2], op[2], op[1:0],0,  c2,   c3, result[2]);
@@ -281,24 +281,32 @@ endmodule
 module mainCtrl (op,ctrl); 
 
   input [3:0] op;
-  output reg [10:0] ctrl;
+  output reg [11:0] ctrl;
 
   always @(op) case (op)
-    //IDEX_RegDst,IDEX_ALUSrc[1:0],IDEX_MemtoReg,IDEX_RegWrite,IDEX_MemWrite,IDEX_Branch[1:0],IDEX_ALUop[2:0] 
-    4'b0000: ctrl <= 11'b10001000010; // ADD
-    4'b0001: ctrl <= 11'b10001000110; // SUB
-    4'b0010: ctrl <= 11'b10001000000; // AND
-    4'b0011: ctrl <= 11'b10001000001; // OR
-    4'b0111: ctrl <= 11'b10001000111; // SLT
-    4'b0101: ctrl <= 11'b00111000010; // LW
-    4'b0110: ctrl <= 11'b00100100010; // SW
-    4'b1000: ctrl <= 11'b00000001110; // BEQ
-    4'b1001: ctrl <= 11'b00000010110; // BNE
-    4'b0100: ctrl <= 11'b00101000010; // ADDI  
-    4'b1111: ctrl <= 11'b01001000001; // LUI  
+    //IDEX_RegDst,IDEX_ALUSrc[1:0],IDEX_MemtoReg,IDEX_RegWrite,IDEX_MemWrite,IDEX_Branch[1:0],IDEX_Jump,IDEX_ALUop[2:0] 
+    4'b0000: ctrl <= 12'b100010000010; // ADD
+    4'b0001: ctrl <= 12'b100010000110; // SUB
+    4'b0010: ctrl <= 12'b100010000000; // AND
+    4'b0011: ctrl <= 12'b100010000001; // OR
+    4'b0111: ctrl <= 12'b100010000111; // SLT
+    4'b0101: ctrl <= 12'b001110000010; // LW
+    4'b0110: ctrl <= 12'b001001000010; // SW
+    4'b1000: ctrl <= 12'b000000010110; // BEQ
+    4'b1001: ctrl <= 12'b000000100110; // BNE
+    4'b0100: ctrl <= 12'b001010000010; // ADDI  
+    4'b1111: ctrl <= 12'b010010000001; // LUI 
+    4'b1010: ctrl <= 12'b010010001010; // J
     
   endcase
 
+endmodule
+
+module JumpAddress (PCplus2, IDEX_IR, Jump_Address);
+  input [15:0] PCplus2;
+  input [15:0] IDEX_IR;
+  output [15:0] Jump_Address;
+  assign Jump_Address = {PCplus2[15:12], IDEX_IR[11:0]};
 endmodule
 
 module ALUSrcControl (ALUSrc, RD2, SignExt, ShiftToUpper, ALUSrcOp);
@@ -361,86 +369,93 @@ module CPU (clock,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
         // Simple program to load 1 from DMemory[0] into $1 and 3 from
         // DMemory[1] into $2, add $1 to $2, add 1 to $1, then swaps
         // the values in $1 and $2 and loops to decrement $2 by $1 until 
-        // $2 reaches 0. Finishes by storing 0 into DMemory[1].
+        // $2 reaches 0. Then stores 3 in DMemory[0] and 1 in DMemory[1],
+        // jumps to the begining and loads $2 with 1 and $1 with 3 then
+        // branches to then end when $2 < $ 1.
 
-        IMemory[0] = 16'b0101000100000000;  // lw $1, 0($0)       1   Load DMemory[0] into $1  
-        IMemory[1] = 16'b0101001000000010;  // lw $2, 2($0)       3   Load DMemory[1] into $2 
-        IMemory[2] = 16'b0000000000000000;  // nop   
+        IMemory[0] = 16'b0000000000000000;  // nop
+        IMemory[1] = 16'b0101000100000000;  // lw $1, 0($0)       1   Load DMemory[0] into $1  
+        IMemory[2] = 16'b0101001000000010;  // lw $2, 2($0)       3   Load DMemory[1] into $2 
         IMemory[3] = 16'b0000000000000000;  // nop   
-        IMemory[4] = 16'b0000000000000000;  // nop
-        IMemory[5] = 16'b0000100110000000;  // add  $2, $2, $1    4
-        IMemory[6] = 16'b0100010100000001;  // addi $1, $1, 1     2
-        IMemory[7] = 16'b0000000000000000;  // nop   
+        IMemory[4] = 16'b0000000000000000;  // nop   
+        IMemory[5] = 16'b0000000000000000;  // nop
+        IMemory[6] = 16'b0000100110000000;  // add  $2, $2, $1    4
+        IMemory[7] = 16'b0100010100000001;  // addi $1, $1, 1     2
         IMemory[8] = 16'b0000000000000000;  // nop   
-        IMemory[9] = 16'b0000000000000000;  // nop
-        IMemory[10] = 16'b0111011011000000;  // slt $3, $1, $2    1   Set $3 on $1 < $2
-        IMemory[11] = 16'b0000000000000000;  // nop   
+        IMemory[9] = 16'b0000000000000000;  // nop   
+        IMemory[10] = 16'b0000000000000000;  // nop
+        IMemory[11] = 16'b0111011011000000;  // slt $3, $1, $2    1   Set $3 on $1 < $2
         IMemory[12] = 16'b0000000000000000;  // nop   
-        IMemory[13] = 16'b0000000000000000;  // nop 
-        IMemory[14] = 16'b1000110000000100;  // beq $3, $0, 4     X   Branch to IMemory[8] if $3 == 0
-        IMemory[15] = 16'b0000000000000000;  // nop   
+        IMemory[13] = 16'b0000000000000000;  // nop   
+        IMemory[14] = 16'b0000000000000000;  // nop 
+        IMemory[15] = 16'b1000110000101001;  // beq $3, $0, 39    X   Branch to IMemory[56] if $3 == 0
         IMemory[16] = 16'b0000000000000000;  // nop   
         IMemory[17] = 16'b0000000000000000;  // nop   
-        IMemory[18] = 16'b0110000100000010;  // sw $1, 2($0)      X   Store $1 into DMemory[1] 
-        IMemory[19] = 16'b0110001000000000;  // sw $2, 0($0)      X   Store $2 into DMemory[0]     
-        IMemory[20] = 16'b0000000000000000;  // nop   
+        IMemory[18] = 16'b0000000000000000;  // nop   
+        IMemory[19] = 16'b0110000100000010;  // sw $1, 2($0)      X   Store $1 into DMemory[1] 
+        IMemory[20] = 16'b0110001000000000;  // sw $2, 0($0)      X   Store $2 into DMemory[0]     
         IMemory[21] = 16'b0000000000000000;  // nop   
-        IMemory[22] = 16'b0101000100000000;  // lw $1, 0($0)      4   Load DMemory[0] into $1
-        IMemory[23] = 16'b0101001000000010;  // lw $2, 2($0)      2   Load DMemory[1] into $2
-        IMemory[24] = 16'b0000000000000000;  // nop   
+        IMemory[22] = 16'b0000000000000000;  // nop   
+        IMemory[23] = 16'b0101000100000000;  // lw $1, 0($0)      4   Load DMemory[0] into $1
+        IMemory[24] = 16'b0101001000000010;  // lw $2, 2($0)      2   Load DMemory[1] into $2
         IMemory[25] = 16'b0000000000000000;  // nop   
-        IMemory[26] = 16'b0000000000000000;  // nop    
-        IMemory[27] = 16'b0001011001000000;  // sub $1, $1, $2    2   $1 <- $1 - $2
-        IMemory[28] = 16'b0000000000000000;  // nop   
+        IMemory[26] = 16'b0000000000000000;  // nop   
+        IMemory[27] = 16'b0000000000000000;  // nop    
+        IMemory[28] = 16'b0001011001000000;  // sub $1, $1, $2    2   $1 <- $1 - $2
         IMemory[29] = 16'b0000000000000000;  // nop   
         IMemory[30] = 16'b0000000000000000;  // nop   
-        IMemory[31] = 16'b1001000111111011;  // bne $1, $0, -5    X   Branch to IMemory[27] if $1 != 0
-        IMemory[32] = 16'b0000000000000000;  // nop   
+        IMemory[31] = 16'b0000000000000000;  // nop   
+        IMemory[32] = 16'b1001000111111011;  // bne $1, $0, -5    X   Branch to IMemory[27] if $1 != 0
         IMemory[33] = 16'b0000000000000000;  // nop   
         IMemory[34] = 16'b0000000000000000;  // nop   
-        IMemory[35] = 16'b0110000100000010;  // sw  $1, 2($0)     0   Store $1 into DMemory[1] 
-        IMemory[36] = 16'b1000010000010011;  // beq $1, $0, 4     X   Branch to IMemory[56] if $1 == 0
-        IMemory[37] = 16'b0000000000000000;  // nop   
+        IMemory[35] = 16'b0000000000000000;  // nop   
+        IMemory[36] = 16'b0110000100000010;  // sw  $1, 2($0)     0   Store $1 into DMemory[1] 
+        IMemory[37] = 16'b1000010000000111;  // beq $1, $0, 4     X   Branch to IMemory[45] if $1 == 0
         IMemory[38] = 16'b0000000000000000;  // nop   
         IMemory[39] = 16'b0000000000000000;  // nop   
-        IMemory[40] = 16'b0100000100000001;  // addi $t1, $0, 1   X   Branched over
-        IMemory[41] = 16'b0000000000000000;  // nop   
-        IMemory[42] = 16'b0000000000000000;  // nop   
-        IMemory[43] = 16'b0000000000000000;  // nop   
-        IMemory[44] = 16'b0100000100000001;  // addi $t1, $0, 1   X   Branched over
-        IMemory[45] = 16'b0000000000000000;  // nop   
-        IMemory[46] = 16'b0000000000000000;  // nop   
-        IMemory[47] = 16'b0000000000000000;  // nop   
-        IMemory[48] = 16'b0100000100000001;  // addi $t1, $0, 1   X   Branched over
+        IMemory[40] = 16'b0000000000000000;  // nop   
+        IMemory[41] = 16'b0100000100000001;  // addi $1, $0, 1   X   Branched over   
+        IMemory[42] = 16'b0100000100000001;  // addi $1, $0, 1   X   Branched over  
+        IMemory[43] = 16'b0100000100000001;  // addi $1, $0, 1   X   Branched over  
+        IMemory[44] = 16'b0100000100000001;  // addi $1, $0, 1   X   Branched over  
+        IMemory[45] = 16'b0101001000000010;  // lw $2, 2($0)      0   Load DMemory[1] into $2
+        IMemory[46] = 16'b0100000100000011;  // addi $1, $0, 3
+        IMemory[47] = 16'b0100001000000001;  // addi $2, $0, 1
+        IMemory[48] = 16'b0000000000000000;  // nop   
         IMemory[49] = 16'b0000000000000000;  // nop   
-        IMemory[50] = 16'b0000000000000000;  // nop   
-        IMemory[51] = 16'b0000000000000000;  // nop   
-        IMemory[52] = 16'b0100000100000001;  // addi $t1, $0, 1   X   Branched over
-        IMemory[53] = 16'b0000000000000000;  // nop   
-        IMemory[54] = 16'b0000000000000000;  // nop   
-        IMemory[55] = 16'b0000000000000000;  // nop   
-        IMemory[56] = 16'b0101001000000010;  // lw $2, 2($0)      0   Load DMemory[1] into $2
+        IMemory[50] = 16'b0000000000000000;  // nop
+        IMemory[51] = 16'b0110000100000000;  // sw  $1, 0($0)
+        IMemory[52] = 16'b0110001000000010;  // sw  $2, 2($0)
+        IMemory[53] = 16'b1010000000000000;  // j
+        IMemory[54] = 16'b0000000000000000;  // nop
+        IMemory[55] = 16'b0000000000000000;  // nop
+        IMemory[56] = 16'b0000000000000000;  // nop
 
         // Data
         DMemory [0] = 16'h1;
         DMemory [1] = 16'h3;
+
     end
 
 // Pipeline stages
 
 // IF 
    wire [15:0] PCplus2, NextPC;
+   wire [15:0] Jump_Address;
+   wire [15:0] branch_mux_result;
    reg[15:0] PC, IMemory[0:1023], IFID_IR, IFID_PCplus2;
    ALU fetch (3'b010,PC,2,PCplus2,Unused1);
    reg [1:0] EXMEM_Branch;
    reg EXMEM_Zero;
    reg [15:0] EXMEM_Target;
    branchCtrl bCtrl (EXMEM_Branch, EXMEM_Zero, branchOut);
-   mux16bit2x1 branchMux (PCplus2, EXMEM_Target, branchOut, NextPC);
+   mux16bit2x1 branchMux (PCplus2, EXMEM_Target, branchOut, branch_mux_result);
+   JumpAddress jump_add (PCplus2, IDEX_IR, Jump_Address);
+   mux16bit2x1 jumpMux (branch_mux_result, Jump_Address, IDEX_Jump, NextPC);
 
 // ID
-   wire [10:0] Control;
-   reg IDEX_RegWrite,IDEX_MemtoReg,IDEX_MemWrite,IDEX_RegDst;
+   wire [11:0] Control;
+   reg IDEX_RegWrite,IDEX_MemtoReg,IDEX_MemWrite,IDEX_RegDst,IDEX_Jump;
    reg [1:0] IDEX_Branch, IDEX_ALUSrc;
    reg [2:0]  IDEX_ALUOp;
    wire [15:0] RD1,RD2,SignExtend, WD;
@@ -482,7 +497,7 @@ module CPU (clock,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
    initial begin
     PC = 0;
 // Init registers
-    IDEX_RegWrite=0;IDEX_MemtoReg=0;IDEX_Branch=0;IDEX_MemWrite=0;IDEX_ALUSrc=0;IDEX_RegDst=0;IDEX_ALUOp=0;
+    IDEX_RegWrite=0;IDEX_MemtoReg=0;IDEX_Branch=0;IDEX_Jump=0;IDEX_MemWrite=0;IDEX_ALUSrc=0;IDEX_RegDst=0;IDEX_ALUOp=0;
     IFID_IR=0;
     EXMEM_RegWrite=0;EXMEM_MemtoReg=0;EXMEM_Branch=0;EXMEM_MemWrite=0;
     EXMEM_Target=0;
@@ -500,7 +515,7 @@ module CPU (clock,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
 
 // ID
     IDEX_IR <= IFID_IR; // For monitoring the pipeline
-    {IDEX_RegDst,IDEX_ALUSrc,IDEX_MemtoReg,IDEX_RegWrite,IDEX_MemWrite,IDEX_Branch,IDEX_ALUOp} <= Control;   
+    {IDEX_RegDst,IDEX_ALUSrc,IDEX_MemtoReg,IDEX_RegWrite,IDEX_MemWrite,IDEX_Branch,IDEX_Jump,IDEX_ALUOp} <= Control;   
     IDEX_PCplus2 <= IFID_PCplus2;
     IDEX_RD1 <= RD1; 
     IDEX_RD2 <= RD2;
@@ -549,63 +564,96 @@ initial begin
     $display ("time\tPC\tIFID_IR\tIDEX_IR\tEXMEM_IR\tMEMWB_IR\tWD");
     $monitor ("%2d\t%3d\t%h\t%h\t%h\t\t%h\t\t%d", $time,PC,IFID_IR,IDEX_IR,EXMEM_IR,MEMWB_IR,WD);
     clock = 1;
-    #103 $finish;
+    #163 $finish;
   end
 endmodule
 
 /* Compiling and simulation
+C:\Users\User\git\forks\CS385-CPU\Source Files\Final>iverilog -o out pipelined-datapath.v
+
 C:\Users\User\git\forks\CS385-CPU\Source Files\Final>vvp out
 time    PC      IFID_IR IDEX_IR EXMEM_IR        MEMWB_IR        WD
  0        0     0000    xxxx    xxxx            xxxx                x
- 1        2     5100    0000    xxxx            xxxx                x
- 3        4     5202    5100    0000            xxxx                x
- 5        6     0000    5202    5100            0000                0
- 7        8     0000    0000    5202            5100                1
- 9       10     0000    0000    0000            5202                3
-11       12     0980    0000    0000            0000                0
-13       14     4501    0980    0000            0000                0
-15       16     0000    4501    0980            0000                0
-17       18     0000    0000    4501            0980                4
-19       20     0000    0000    0000            4501                2
-21       22     76c0    0000    0000            0000                0
-23       24     0000    76c0    0000            0000                0
-25       26     0000    0000    76c0            0000                0
-27       28     0000    0000    0000            76c0                1
-29       30     8c04    0000    0000            0000                0
-31       32     0000    8c04    0000            0000                0
-33       34     0000    0000    8c04            0000                0
-35       36     0000    0000    0000            8c04                1
-37       38     6102    0000    0000            0000                0
-39       40     6200    6102    0000            0000                0
-41       42     0000    6200    6102            0000                0
-43       44     0000    0000    6200            6102                2
-45       46     5100    0000    0000            6200                0
-47       48     5202    5100    0000            0000                0
-49       50     0000    5202    5100            0000                0
-51       52     0000    0000    5202            5100                4
-53       54     0000    0000    0000            5202                2
-55       56     1640    0000    0000            0000                0
-57       58     0000    1640    0000            0000                0
-59       60     0000    0000    1640            0000                0
-61       62     0000    0000    0000            1640                2
-63       64     91fb    0000    0000            0000                0
-65       66     0000    91fb    0000            0000                0
-67       68     0000    0000    91fb            0000                0
-69       54     0000    0000    0000            91fb            65534
-71       56     1640    0000    0000            0000                0
-73       58     0000    1640    0000            0000                0
-75       60     0000    0000    1640            0000                0
-77       62     0000    0000    0000            1640                0
-79       64     91fb    0000    0000            0000                0
-81       66     0000    91fb    0000            0000                0
-83       68     0000    0000    91fb            0000                0
-85       70     0000    0000    0000            91fb                0
-87       72     6102    0000    0000            0000                0
-89       74     8413    6102    0000            0000                0
-91       76     0000    8413    6102            0000                0
-93       78     0000    0000    8413            6102                2
-95      112     0000    0000    0000            8413                0
-97      114     5202    0000    0000            0000                0
-99      116     xxxx    5202    0000            0000                0
-101     118     xxxx    xxxx    5202            0000                0
-103     120     xxxx    xxxx    xxxx            5202                0
+ 1        2     0000    0000    xxxx            xxxx                x
+ 3        4     5100    0000    0000            xxxx                x
+ 5        6     5202    5100    0000            0000                0
+ 7        8     0000    5202    5100            0000                0
+ 9       10     0000    0000    5202            5100                1
+11       12     0000    0000    0000            5202                3
+13       14     0980    0000    0000            0000                0
+15       16     4501    0980    0000            0000                0
+17       18     0000    4501    0980            0000                0
+19       20     0000    0000    4501            0980                4
+21       22     0000    0000    0000            4501                2
+23       24     76c0    0000    0000            0000                0
+25       26     0000    76c0    0000            0000                0
+27       28     0000    0000    76c0            0000                0
+29       30     0000    0000    0000            76c0                1
+31       32     8c29    0000    0000            0000                0
+33       34     0000    8c29    0000            0000                0
+35       36     0000    0000    8c29            0000                0
+37       38     0000    0000    0000            8c29                1
+39       40     6102    0000    0000            0000                0
+41       42     6200    6102    0000            0000                0
+43       44     0000    6200    6102            0000                0
+45       46     0000    0000    6200            6102                2
+47       48     5100    0000    0000            6200                0
+49       50     5202    5100    0000            0000                0
+51       52     0000    5202    5100            0000                0
+53       54     0000    0000    5202            5100                4
+55       56     0000    0000    0000            5202                2
+57       58     1640    0000    0000            0000                0
+59       60     0000    1640    0000            0000                0
+61       62     0000    0000    1640            0000                0
+63       64     0000    0000    0000            1640                2
+65       66     91fb    0000    0000            0000                0
+67       68     0000    91fb    0000            0000                0
+69       70     0000    0000    91fb            0000                0
+71       56     0000    0000    0000            91fb            65534
+73       58     1640    0000    0000            0000                0
+75       60     0000    1640    0000            0000                0
+77       62     0000    0000    1640            0000                0
+79       64     0000    0000    0000            1640                0
+81       66     91fb    0000    0000            0000                0
+83       68     0000    91fb    0000            0000                0
+85       70     0000    0000    91fb            0000                0
+87       72     0000    0000    0000            91fb                0
+89       74     6102    0000    0000            0000                0
+91       76     8407    6102    0000            0000                0
+93       78     0000    8407    6102            0000                0
+95       80     0000    0000    8407            6102                2
+97       90     0000    0000    0000            8407                0
+99       92     5202    0000    0000            0000                0
+101      94     4103    5202    0000            0000                0
+103      96     4201    4103    5202            0000                0
+105      98     0000    4201    4103            5202                0
+107     100     0000    0000    4201            4103                3
+109     102     0000    0000    0000            4201                1
+111     104     6100    0000    0000            0000                0
+113     106     6202    6100    0000            0000                0
+115     108     a000    6202    6100            0000                0
+117     110     0000    a000    6202            6100                0
+119       0     0000    0000    a000            6202                2
+121       2     0000    0000    0000            a000                0
+123       4     5100    0000    0000            0000                0
+125       6     5202    5100    0000            0000                0
+127       8     0000    5202    5100            0000                0
+129      10     0000    0000    5202            5100                3
+131      12     0000    0000    0000            5202                1
+133      14     0980    0000    0000            0000                0
+135      16     4501    0980    0000            0000                0
+137      18     0000    4501    0980            0000                0
+139      20     0000    0000    4501            0980                4
+141      22     0000    0000    0000            4501                4
+143      24     76c0    0000    0000            0000                0
+145      26     0000    76c0    0000            0000                0
+147      28     0000    0000    76c0            0000                0
+149      30     0000    0000    0000            76c0                0
+151      32     8c29    0000    0000            0000                0
+153      34     0000    8c29    0000            0000                0
+155      36     0000    0000    8c29            0000                0
+157     114     0000    0000    0000            8c29                0
+159     116     xxxx    0000    0000            0000                0
+161     118     xxxx    xxxx    0000            0000                0
+163     120     xxxx    xxxx    xxxx            0000                0
+*/
